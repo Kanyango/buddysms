@@ -1,0 +1,105 @@
+<br>
+<div class="container">
+	<div class="row">
+	 <div class="pull-right">
+		<p><b>You have X sms credits</b></p>
+		<a class="btn btn-sm btn-danger" ui-sref="" ><b>Top Up</b></a>
+	</div>
+	</div>
+</div>
+<hr>
+<div class="container">
+<div class="row">
+<div class="col-md-8 col-md-offset-2 well">
+<br>
+<form class="form-horizontal" role="form">
+ 	<div class="form-group">
+		<label class="col-md-2 control-label">Recipients</label>
+		<div class="col-md-8">
+			<oi-select 
+			oi-options="item.name for item in contacts track by item.value"
+            ng-model="text.bundle"
+		    multiple
+		    ng-blur="send()"
+		    placeholder="Select recipients" ng-blur="send()">
+		  </oi-select>
+		</div>
+	</div>
+
+	<div class="form-group">
+	 <div class="col-md-4 col-md-offset-2">
+	<p>{{ reci }} recipients</p>
+	</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-md-2  control-label">Message</label>
+		<div class="col-md-8">
+			<textarea class="form-control" rows="8" name="message" ng-blur="count()"
+			 id="message"
+			 ng-model="text.message" ng-trim="false" placeholder="Message......"></textarea>
+		</div>
+		</div>
+	<div class="form-group">
+	 <div class="col-md-4 col-md-offset-2">
+		<span  ng-show="text.message.length <= 140">{{140 - text.message.length }} characters left</span> |
+		<span ng-show="text.message.length <= 140"> 1 message </span>	
+		<span ng-show="text.message.length >= 140"> {{ y }} messages </span>
+		</div>
+		</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">From</label>
+		<div class="col-md-8">
+		<input class="form-control" name="from" ng-model="text.from">
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label class="col-md-2 col-md-offset-2 control-label" hidden>Chars</label>
+		<div class="col-md-4">
+		<input class="form-control" placeholder="no of chars" ng-model=
+		"chars" 
+			type="hidden" readonly="readonly">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 col-md-offset-2 control-label" hidden>no of Recipients
+		</label>
+		<div class="col-md-4">
+	  <input class="form-control" placeholder="no of chars" ng-model="reci" 
+			type="hidden">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 control-label">messages</label>
+		<div class="col-md-4">
+			<input class="form-control" placeholder="no of chars"
+			my-model-value="{{reci * chars}}" ng-model="text.messages" 
+			readonly="readonly">
+		</div>
+	</div>
+	 <div class="form-group">
+	 <div class="col-md-4 col-md-offset-2">
+	 <div class="radio">
+		  <label><input type="radio" name="optradio">Send now</label>
+		</div>
+		<div class="radio">
+		  <label><input type="radio" name="optradio">
+		  send at a different time</label>
+		</div>
+		<div class="radio">
+		  <label><input type="radio" name="optradio">save as template
+		  </label>
+    </div>
+    </div>
+    </div>
+    <hr>
+    <div class="form-group">
+	<div class="col-md-4 col-md-offset-2">
+		<button  class="btn btn-lg btn-success" ng-click="sendText()">Send</button>
+	</div>
+	</div>
+</form>
+</div>
+</div>
+</div>

@@ -1,0 +1,23 @@
+<form class="form-horizontal" role="form">
+	<div class="form-group">
+		<label class="col-md-2 col-md-offset-2 control-label">Item</label>
+		<div class="col-md-8">
+			<input class="form-control" type="text" name="item" ng-model="trans.item">
+		</div>
+		</div>
+		<div class="form-group">
+		<label class="col-md-2 col-md-offset-2 control-label">Cost</label>
+		<div class="col-md-8">
+			<input class="form-control" name="cost" ng-model="trans.cost">
+		</div>
+	</div>
+	<div class="form-group">
+		<label class="col-md-2 col-md-offset-2 control-label">Qtty</label>
+		<div class="col-md-8">
+			<input class="form-control" name="qtty" ng-model="trans.qtty" >
+		</div>
+	</div>
+	<div class="col-md-2 col-md-offset-4">
+		<button ng-click="buy()" class="btn btn-md btn-success">Send</button>
+	</div>
+</form>

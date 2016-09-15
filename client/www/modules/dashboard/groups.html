@@ -1,0 +1,60 @@
+
+<div class="container">
+	<div class="text-left">
+		<h3>Contact Groups</h3>
+	</div>
+	<div class="row well">
+		<div class="">
+			<form class="form-horizontal" role="form">
+				<div class="form-group">
+					<label class="control-label col-md-2">Group Name</label>
+					<div class="col-md-6">
+					<input class="form-control" placeholder="enter group name" name="name" ng-model="group.name">
+					</div>
+				</div>
+				<div class="form-group">
+				<label class="control-label col-md-2">
+				Group Contacts</label>
+					<div class="col-md-6">
+						<oi-select 
+							oi-options="item.name for item in contacts track by item.value"
+				            ng-model="group.tags"
+				            name="tags"
+						    multiple
+						    placeholder="Select contacts">
+						</oi-select>
+					</div>
+				</div>
+				<div class="col-md-3 col-md-offset-2">
+					<button class="btn btn-md btn-success" ng-click="save()">
+						Save
+					</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+ <h3>Groups List</h3>
+	<div class="row">
+		<div class="col-md-8">
+			<ul class="list-group" ng-repeat="user in users | filter:paginate">
+				<li class="list-group-item">
+				    <p hidden>{{ user._id }}</p>
+					<h4>{{ user.name }}</h4>
+					<button class="btn btn-md btn-primary" 
+					ng-click="open(user)">edit</button>
+					<button class="btn btn-md btn-danger" 
+					ng-click="remove(user._id)">
+					delete
+					</button>
+				</li>
+			</ul>
+		<ul uib-pagination total-items="totalItems" 
+          max-size="5" boundary-links="true" ng-model="currentPage"
+          items-per-page="numPerPage">
+        </ul>
+		</div>
+	</div>
+</div>

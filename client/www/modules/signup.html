@@ -1,0 +1,51 @@
+	<nav class="navbar navbar-default" style="margin-bottom:0px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a  href="#" class="navbar-brand">
+      <img src="assets/buddy-logo.png" height="40px"></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#">Home</a></li>
+      <li><a href="#">About Us</a></li>
+      <li><a href="#">Products and Services</a></li>
+      <li><a href="#">Contact Us</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li class="active"><a ui-sref="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+<div class="">
+<div class="jumbotron">
+	<div class="text-center">
+		<h2>Sign Up</h2>
+	</div>
+	<form class="form-horizontal" role="form">
+			
+		</div>
+			<div class="form-group">
+			<label class="control-label col-md-2 col-md-offset-2">Username</label>
+			<div class="col-md-4">
+			<input type="text" name="username" ng-model="user.username" class="form-control">
+			</div>
+		</div>
+			<div class="form-group">
+			<label class="control-label col-md-2 col-md-offset-2">Phone No.</label>
+			<div class="col-md-4">
+			<input type="number" name="phone" ng-model="user.phone" class="form-control">
+			</div>
+		</div>
+			<div class="form-group">
+			<label class="control-label col-md-2 col-md-offset-2">Password</label>
+			<div class="col-md-4">
+			<input type="password" name="password" ng-model="user.password" class="form-control">
+			</div>
+		</div>
+		<div class="col-md-2 col-md-offset-4">
+			<button class="btn btn-md btn-start" ng-click="signup()">Get Started</button>
+		</div>
+	</form>
+ </div>
+</div>
