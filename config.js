@@ -1,7 +1,7 @@
 
 exports.mongodb = {
 	//uri: 'mongodb://127.0.0.1:27017/smsdb'
-	uri: 'mongodb://DaveBuddy:bmw760li@@ds033126.mlab.com:33126/smsappdb'
+	uri: 'mongodb://DaveBuddy:bmw760li@ds033126.mlab.com:33126/smsappdb'
 };
 
 exports.secret = 'b7TY?>m6wl_i/<';
