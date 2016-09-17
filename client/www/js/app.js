@@ -9,7 +9,7 @@ angular.module('buddySms',
 	])
 .config(['$httpProvider', function ($httpProvider) {
         $httpProvider.defaults.useXDomain = true;
-        delete $httpProvider.defaults.headers.common['X-Requested-With'];
+        $http.defaults.headers.post["Content-Type"] = "application/json";
     }])
 .config(function($stateProvider , $urlRouterProvider){
 
