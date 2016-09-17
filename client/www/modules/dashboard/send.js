@@ -30,11 +30,15 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
       
       $scope.testAuth = function()
       {
-        $http.post('https://sms.solutions4mobiles.com/apis/auth' , $scope.authParams)
+        $http.post('https://sms.solutions4mobiles.com/apis/auth' , { 
+		        "type" : "access_token",
+		        "username" : "Dave",
+		        "password" : "androidapps"
+		      })
         .then(function(response){
           console.log(response.data);
         });
-      }
+      };
       
 
       $http.get('/contacts', {headers : {Authorization: 'Bearer ' + auth.getToken()}})
