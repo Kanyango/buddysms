@@ -38,11 +38,16 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function(req, res, next) {
+app.all('*' ,function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
     res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
-    res.header("Access-Control-Allow-Headers", "Origin,X-Requested-With,Accept,Content-Type");
-    next();
+    res.header("Access-Control-Allow-Headers", "accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token");
+   if ('OPTIONS' == req.method) {
+      res.send(200);
+    }
+    else {
+      next();
+    }
 });
 
 require('./passport')(app , passport);
