@@ -40,7 +40,7 @@ app.use(passport.session());
 
 app.all('https://buddysms.herokuapp.com*' ,function(req, res, next) {
     res.header("Access-Control-Allow-Origin", "https://buddysms.herokuapp.com*");
-    res.header("Access-Control-Allow-Methods", "GET,PUT,POST,DELETE,OPTIONS");
+    res.header("Access-Control-Allow-Methods", "GET, PUT , POST , DELETE ,OPTIONS");
     res.header("Access-Control-Allow-Headers", "accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token");
    if ('OPTIONS' == req.method) {
       res.send(200);
