@@ -7,10 +7,11 @@ angular.module('buddySms',
 	'buddySms.signUp',
     'buddySms.login',
 	])
-.config(['$httpProvider', function ($httpProvider) {
+.config(function ($httpProvider) {
         $httpProvider.defaults.useXDomain = true;
-        $http.defaults.headers.post["Content-Type"] = "application/json";
-    }])
+        $httpProvider.defaults.headers.post['X-Posted-By'] = 'https://buddysms.herokuapp.com/';
+        $httpProvider.defaults.headers.post["Content-Type"] = "application/json";
+    })
 .config(function($stateProvider , $urlRouterProvider){
 
 	$stateProvider
