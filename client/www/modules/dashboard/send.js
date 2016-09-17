@@ -19,7 +19,22 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 .controller('SendSMS', function($scope , $http , $q ,  auth){
 
 	    $scope.tags = [];
-      $scope.text = {};
+            $scope.text = {};
+            
+            $scope.authParams = 
+		      { 
+		        "type" : "access_token",
+		        "username" : "Dave",
+		        "password" : "androidapps"
+		      }
+      
+      $scope.testAuth = function()
+      {
+        $http.post('https://sms.solutions4mobile.com' , $scope.authParams)
+        .then(function(response){
+          console.log(response.data);
+        });
+      }
       
 
       $http.get('/contacts', {headers : {Authorization: 'Bearer ' + auth.getToken()}})
