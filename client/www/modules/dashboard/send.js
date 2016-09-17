@@ -30,7 +30,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
       
       $scope.testAuth = function()
       {
-        $http.post('https://sms.solutions4mobile.com/apis/auth' , $scope.authParams)
+        $http.post('https://sms.solutions4mobiles.com/apis/auth' , $scope.authParams)
         .then(function(response){
           console.log(response.data);
         });
