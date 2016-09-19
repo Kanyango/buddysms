@@ -7,13 +7,7 @@ angular.module('buddySms',
 	'buddySms.signUp',
         'buddySms.login'
 	])
-.config(function($httpProvider) {
-        $httpProvider.defaults.useXDomain = true;
-        //$httpProvider.defaults.headers.post['X-Posted-By'] = 'https://buddysms.herokuapp.com';
-        //$httpProvider.defaults.headers.post["Content-Type"] = "application/json";
-        //delete $httpProvider.defaults.headers.common['X-Requested-With'];
-    })
-.config(function($stateProvider , $urlRouterProvider){
+.config(function($stateProvider , $urlRouterProvider , $httpProvider){
 
 	$stateProvider
 	.state('home',
@@ -39,4 +33,7 @@ angular.module('buddySms',
 		 templateUrl: '/modules/about.html' 
 		});
 	$urlRouterProvider.otherwise('/home');
+	
+	$httpProvider.defaults.withCredentials = true;
+        delete $httpProvider.defaults.headers.common["X-Requested-With"];
 });
