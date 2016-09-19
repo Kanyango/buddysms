@@ -37,11 +37,11 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
       {
         $http.post('https://sms.solutions4mobiles.com/apis/auth',
         {
-	           "type" : "access_token",
-	           "username" : "myusername",
-	           "password" : "mypassword"
+	           "type"     : "access_token",
+	           "username" : "kariukikanyango@gmail.com",
+	           "password" : "androidapps"
          })
-        .success(function(response){
+        .then(function(response){
           console.log(response.data);
         });
       };
