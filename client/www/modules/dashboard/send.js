@@ -33,7 +33,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
               "type"     : "access_token",
               "username" : "kariukikanyango@gmail.com",
               "password" : "androidapps"
-        })
+        }})
         .then(function(response){
           console.log(response.data);
         });
