@@ -24,10 +24,10 @@ require('./models')(app, mongoose);
 
 app.set('port' , config.port);
 
-app.all('*' ,function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", "*");
+app.use('https://buddysms.herokuapp.com/' ,function(req, res, next) {
+    res.header("Access-Control-Allow-Origin", "https://buddysms.herokuapp.com/");
     res.header("Access-Control-Allow-Methods", "GET, PUT , POST , DELETE ,HEAD");
-    res.header("Access-Control-Allow-Headers", "accept, content-type, x-parse-application-id, x-parse-rest-api-key, x-parse-session-token");
+    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept, Client-Offset");
    if ('OPTIONS' == req.method) {
       res.send(200);
     }
