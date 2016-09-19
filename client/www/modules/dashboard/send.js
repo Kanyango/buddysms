@@ -1,5 +1,11 @@
 angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 
+.config(function($httpProvider)
+{
+	$httpProvider.defaults.withCredentials = true;
+	$httpProvider.defaults.useXDomain = true;
+        delete $httpProvider.defaults.headers.common["X-Requested-With"];
+})
 .directive('myModelValue', function () {
         return {
             restrict: 'A',
