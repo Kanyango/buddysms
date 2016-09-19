@@ -5,7 +5,7 @@ angular.module('buddySms',
 	'buddySms.auth',
 	'angular-storage',
 	'buddySms.signUp',
-    'buddySms.login',
+        'buddySms.login'
 	])
 .config(function($httpProvider) {
         $httpProvider.defaults.useXDomain = true;
