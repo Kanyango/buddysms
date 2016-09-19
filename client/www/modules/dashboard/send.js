@@ -37,7 +37,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
       {
         $http
         ({ method : 'POST',
-           url   :   'https://www.solutions4mobiles.com/apis/auth',
+           url   :   'https://sms.solutions4mobiles.com/apis/auth',
            headers : {'Content-Type' : 'application/json',
                        "type"     : "access_token",
                      "username" : "kariukikanyango@gmail.com",
