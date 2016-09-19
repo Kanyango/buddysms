@@ -35,14 +35,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
       
       $scope.testAuth = function()
       {
-        $http
-        ({ method : 'POST',
-           url   :   'https://sms.solutions4mobiles.com/apis/auth',
-           headers : {'Content-Type' : 'application/json',
-                       "type"     : "access_token",
-                     "username" : "kariukikanyango@gmail.com",
-              "password" : "androidapps"
-        }})
+        $http.post('/authenticateText',$scope.authParams)
         .then(function(response){
           console.log(response.data);
         });
