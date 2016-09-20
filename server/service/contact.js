@@ -165,13 +165,15 @@ var contact = {
 	  	request({
 	  		
 	  		url: 'https://sms.solutions4mobiles.com/apis/auth',
-	  		qs : {
+	  		method: 'POST',
+	  		headers: {
+			        'Content-Type': 'application/json',
+			    },
+	  		json : {
                                  "type"     : "access_token",
 			         "username" : "kariukikanyango@gmail.com",
 		             	 "password" : "androidapps"
-  				},
-  			method: 'POST',
-  			headers : { 'Content-Type': 'application/json'}
+  				}
 	         	},function(error , response , body){
 	         		if(error)
 	         		{
