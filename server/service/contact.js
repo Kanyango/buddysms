@@ -158,6 +158,27 @@ var contact = {
 	  			res.status(200).json(info);
 	  		});
 
+	  },
+	  sms : function(req , res , next)
+	  {
+	  	
+	  	request({
+	  		
+	  		url: 'https://sms.solutions4mobiles.com/apis/auth',
+	  		qs : {
+                                 "type"     : "access_token",
+			         "username" : "kariukikanyango@gmail.com",
+		             	 "password" : "androidapps"
+  				},
+  			method: 'POST',
+  			headers : { 'Content-Type': 'application/json'}
+	         	},function(error , response , body){
+	         		if(error)
+	         		{
+	         			return next(err);
+	         		}
+	         	res.status(200).json(body);	
+	         	});
 	  }
 }
 module.exports = contact;
