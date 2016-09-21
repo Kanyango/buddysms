@@ -40,7 +40,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
           console.log(response.data);
           $scope.token = response.data;
           
-          $window.localstorage.access_token = $scope.token;
+          $window.localStorage.access_token = $scope.token;
         });
       };
       
