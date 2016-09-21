@@ -21,7 +21,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
         };
  })
 
-.controller('SendSMS', function($scope , $http , $q ,  auth){
+.controller('SendSMS', function($scope , $http , $q ,  auth , $window){
 
 	    $scope.tags = [];
             $scope.text = {};
@@ -38,6 +38,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
         $http.post('/authenticateText')
         .then(function(response){
           console.log(response.data);
+          $window.localstorage['access_token'] = response.data;
         });
       };
       
