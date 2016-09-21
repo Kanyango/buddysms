@@ -40,7 +40,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
           console.log(response);
           $scope.token = response.data;
           console.log($scope.token);
-          $scope.smstok = $scope.token.payload;
+          $scope.smstok = $scope.token.payload.access_token;
           console.log($scope.smstok);
           $window.localStorage.access_token = $scope.smstok;
           console.log($window.localStorage.access_token.access_token);
