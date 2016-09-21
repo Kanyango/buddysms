@@ -36,7 +36,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
       $scope.testAuth = function()
       {
         $http.post('/authenticateText')
-        .then(function(response){
+        .then(function(response.data){
           console.log(response.data);
           $scope.token = response.data;
           $window.localstorage['access_token'] = $scope.token;
