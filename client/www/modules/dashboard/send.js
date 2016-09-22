@@ -35,16 +35,32 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
       
       $scope.testAuth = function()
       {
-        $http.post('/authenticateText')
-        .then(function(response){
+      	if($$window.localStorage.access_token = null)
+      	{
+         $http.post('/authenticateText')
+         .then(function(response){
           console.log(response);
           $scope.token = response.data;
           console.log($scope.token);
-          $scope.smstok = $scope.token.payload.access_token;
+          $scope.smstok = $scope.token.payload;
           console.log($scope.smstok);
           $window.localStorage.access_token = $scope.smstok;
           console.log($window.localStorage.access_token.access_token);
-        });
+        });	
+      	}
+      	else
+      	{
+      		$scope.sendText = function()
+		  {
+		    $http.post('/message' ,$scope.text)
+		    .then(function(response){
+		      $scope.text = {};
+		      $scope.chars = {};
+		      $scope.messages = {};
+		      });
+		   }
+      	}
+      
       };
       
 
@@ -118,14 +134,4 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
     }
   }
 
-  $scope.sendText = function()
-  {
-    $http.post('/message' ,$scope.text, 
-      {headers : {Authorization: 'Bearer ' + auth.getToken()}})
-    .then(function(response){
-      $scope.text = {};
-      $scope.chars = {};
-      $scope.messages = {};
-      });
-   }
 });
