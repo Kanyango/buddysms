@@ -52,9 +52,9 @@ var message = {
 	         		if(error)
 	         		{
 	         			return next(err);
-	         		}*/
+	         		}
 	         	res.status(200).json(body);	
-	         	});
+	         	});*/
 			
 			
 	},
