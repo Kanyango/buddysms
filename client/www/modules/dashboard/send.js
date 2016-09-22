@@ -51,6 +51,8 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 		      $scope.text = {};
 		      $scope.chars = {};
 		      $scope.messages = {};
+		      $scope.4mb = response.data;
+		      console.log($scope.4mb);
 		      
 		      });
 		   
