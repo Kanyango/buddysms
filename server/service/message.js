@@ -35,13 +35,13 @@ var message = {
 				res.status(200).json(docs);
 			});
 			
-		/*	request({
+			request({
 	  		
 	  		url: 'https://sms.solutions4mobiles.com/apis/sms/mt/v2/send',
 	  		method: 'POST',
 	  		headers: {
 			        'Content-Type': 'application/json',
-			        'Authorization' : 'Bearer' + req.body.auth
+			        'Authorization' : 'Bearer' + req.body.smstok
 			    },
 	  		json : [{
 	  				"to"      : req.body.bundle,
@@ -54,7 +54,7 @@ var message = {
 	         			return next(err);
 	         		}
 	         	res.status(200).json(body);	
-	         	});*/
+	         	});
 			
 			
 	},
