@@ -46,8 +46,13 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
           //console.log($scope.smstok);
           $window.localStorage.access_token = $scope.smstok;
           //console.log($window.localStorage.access_token);
-          $http.post('/message' ,$scope.text , $scope.smstok)
-	  .then(function(response){
+        });	
+      	}
+      	else
+      	{
+      	
+		   $http.post('/message' ,$scope.text , $scope.smstok)
+	           .then(function(response){
 		      $scope.text = {};
 		      $scope.chars = {};
 		      $scope.messages = {};
@@ -56,20 +61,6 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 		      
 		      });
 		   
-        });	
-      	}
-      	else
-      	{
-      		$scope.sendText = function()
-		  {
-		    $http.post('/message' ,$scope.text , $scope.smstok)
-		    .then(function(response){
-		      $scope.text = {};
-		      $scope.chars = {};
-		      $scope.messages = {};
-		      
-		      });
-		   }
       	}
       
       };
