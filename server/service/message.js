@@ -1,5 +1,6 @@
 'use strict';
 var mongoose = require('mongoose');
+var request  = require('request');
 
 var message = {
 
@@ -30,8 +31,32 @@ var message = {
 			}
 
 			}); */
+			
 				res.status(200).json(docs);
 			});
+			
+		/*	request({
+	  		
+	  		url: 'https://sms.solutions4mobiles.com/apis/sms/mt/v2/send',
+	  		method: 'POST',
+	  		headers: {
+			        'Content-Type': 'application/json',
+			        'Authorization' : 'Bearer' + req.body.auth
+			    },
+	  		json : [{
+	  				"to"      : req.body.bundle,
+			                "from"    : req.body.from,
+			                "message" : req.body.message
+  				}]
+	         	},function(error , response , body){
+	         		if(error)
+	         		{
+	         			return next(err);
+	         		}*/
+	         	res.status(200).json(body);	
+	         	});
+			
+			
 	},
 	read : function(req , res , next)
 	{
