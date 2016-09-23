@@ -83,27 +83,27 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
   {
     //console.log($scope.bundle);
     $scope.rec = [];
-    for(var k = 0; k < $scope.text.bundle.length; k++)
+    for(var k = 0; k < $scope.bundle.length; k++)
     {
       //console.log($scope.bundle[k]["value"]);
 
       //$scope.rec.push($scope.bundle[k]["value"]);
 
-    if(angular.isArray($scope.text.bundle[k]["value"]))
+    if(angular.isArray($scope.bundle[k]["value"]))
       {
-        for(var l = 0; l < $scope.text.bundle[k]["value"].length; l++)
+        for(var l = 0; l < $scope.bundle[k]["value"].length; l++)
         {
           //console.log($scope.bundle[k]["value"][l]["value"]);
 
-          console.log($scope.text.bundle[k]["value"][l]["value"]);
+          console.log($scope.bundle[k]["value"][l]["value"]);
 
-           $scope.rec.push($scope.text.bundle[k]["value"][l]["value"]);
+           $scope.rec.push($scope.bundle[k]["value"][l]["value"]);
 
         }
       }
       else
       {
-        $scope.rec.push($scope.text.bundle[k]["value"]); 
+        $scope.rec.push($scope.bundle[k]["value"]); 
       }
       
     } 
