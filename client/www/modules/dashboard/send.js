@@ -127,7 +127,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 	           	$scope.yey = response.data;
 	           	console.log($scope.rey);
 	           	console.log($scope.yey);
-	           	
+	           	console.log($scope.yey + 'Kipii');
 		     // $scope.text = {};
 		      //$scope.chars = {};
 		      //$scope.messages = {};
