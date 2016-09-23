@@ -37,10 +37,10 @@ var message = {
 	  		method: 'POST',
 	  		headers: {
 			        'Content-Type': 'application/json',
-			        'Authorization' : 'Bearer' + req.body.smstok
+			        'Authorization' : 'Bearer' + req.body.token
 			    },
 	  		json : [{
-	  				"to"      : req.body.bundle,
+	  				"to"      : req.body.rec,
 			                "from"    : req.body.from,
 			                "message" : req.body.message
   				}]
