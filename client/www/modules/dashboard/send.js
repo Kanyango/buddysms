@@ -127,13 +127,16 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 	           	$scope.yey = response.data;
 	           	console.log($scope.rey);
 	           	console.log($scope.yey);
+	           	
 		     // $scope.text = {};
 		      //$scope.chars = {};
 		      //$scope.messages = {};
 		      //$scope.sms4mb = response.data;
-		if($scope.rey === 401)
-		 {
-		 	console.log($scope.rey);
+	           },
+	           function(error)
+	           {
+	           	
+	           
 		 	$http.post('/authenticateText')
 		 	.then(function(response){
 		          //console.log(response);
@@ -151,10 +154,8 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 	                 	console.log($scope.repy);
 	                 	
 	                 });
-		        
-		 };
-		 
-		      });
+		      }
+      	           });
 		   
       	}
       
