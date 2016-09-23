@@ -124,7 +124,9 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 		   {headers : {Authorization: 'Bearer ' + auth.getToken()}})
 	           .then(function(response){
 	           	$scope.rey = response.data.status_code;
+	           	$scope.yey = response.data;
 	           	console.log($scope.rey);
+	           	console.log($scope.yey);
 		     // $scope.text = {};
 		      //$scope.chars = {};
 		      //$scope.messages = {};
