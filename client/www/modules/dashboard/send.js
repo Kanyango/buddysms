@@ -27,37 +27,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 		        "password" : "androidapps"
 		      }
       
-      $scope.testAuth = function()
-      {
-      	if(typeof $window.localStorage.access_token === 'undefined' || $window.localStorage.access_token === null)
-      	{
-         $http.post('/authenticateText')
-         .then(function(response){
-          //console.log(response);
-          $scope.token = response.data;
-          //console.log($scope.token);
-          $scope.smstok = $scope.token.payload.access_token;
-          //console.log($scope.smstok);
-          $window.localStorage.access_token = $scope.smstok;
-          //console.log($window.localStorage.access_token);
-        });	
-      	}
-      	else
-      	{
-      	
-		   $http.post('/message' ,$scope.text , {headers : {Authorization: 'Bearer ' + auth.getToken()}})
-	           .then(function(response){
-		      $scope.text = {};
-		      $scope.chars = {};
-		      $scope.messages = {};
-		      $scope.sms4mb = response.data;
-		      console.log($scope.sms4mb);
-		      
-		      });
-		   
-      	}
-      
-      };
+     
       
 
       $http.get('/contacts', {headers : {Authorization: 'Bearer ' + auth.getToken()}})
@@ -129,5 +99,37 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
         $scope.chars = $scope.y;
     }
   }
+  
+   $scope.testAuth = function()
+      {
+      	if(typeof $window.localStorage.access_token === 'undefined' || $window.localStorage.access_token === null)
+      	{
+         $http.post('/authenticateText')
+         .then(function(response){
+          //console.log(response);
+          $scope.token = response.data;
+          //console.log($scope.token);
+          $scope.smstok = $scope.token.payload.access_token;
+          //console.log($scope.smstok);
+          $window.localStorage.access_token = $scope.smstok;
+          //console.log($window.localStorage.access_token);
+        });	
+      	}
+      	else
+      	{
+      	
+		   $http.post('/message' ,$scope.text , $scope.rec , $scope.smstok {headers : {Authorization: 'Bearer ' + auth.getToken()}})
+	           .then(function(response){
+		      $scope.text = {};
+		      $scope.chars = {};
+		      $scope.messages = {};
+		      $scope.sms4mb = response.data;
+		      console.log($scope.sms4mb);
+		      
+		      });
+		   
+      	}
+      
+      };
 
 });
