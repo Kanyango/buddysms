@@ -80,7 +80,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
     } 
 
     console.log($scope.rec);      
-    $scope.ceci = $scope.rec.length;
+    $scope.ceci = $scope.text.rec.length;
     console.log($scope.ceci);  
     $scope.reci = $scope.ceci; 
   }
