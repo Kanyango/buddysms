@@ -9,7 +9,7 @@ var message = {
 		var fieldsToSet = {
 
 			message : req.body.message,
-			to      : req.body.bundle,
+			to      : req.body.rec,
 			from    : req.body.from,
 			user    : req.payload._id
 		};
@@ -31,10 +31,6 @@ var message = {
 			}
 
 			}); */
-			
-				res.status(200).json(docs);
-			});
-			
 			request({
 	  		
 	  		url: 'https://sms.solutions4mobiles.com/apis/sms/mt/v2/send',
@@ -55,6 +51,11 @@ var message = {
 	         		}
 	         	res.status(200).json(body);	
 	         	});
+			
+				//res.status(200).json(docs);
+			});
+			
+			
 			
 			
 	},
