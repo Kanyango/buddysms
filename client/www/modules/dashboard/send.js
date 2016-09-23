@@ -119,7 +119,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
       	{
       		
       		 //$scope.rec , $scope.smstok ,
-		   $http.post('/message' ,$scope.text , $scope.rec , $scope.smstok ,
+		   $http.post('/message' ,[$scope.text , $scope.rec , $scope.smstok] , 
 		   {headers : {Authorization: 'Bearer ' + auth.getToken()}})
 	           .then(function(response){
 		      $scope.text = {};
