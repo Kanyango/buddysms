@@ -131,6 +131,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 		      //$scope.sms4mb = response.data;
 		if($scope.rey === 401)
 		 {
+		 	console.log($scope.rey);
 		 	$http.post('/authenticateText')
 		 	.then(function(response){
 		          //console.log(response);
