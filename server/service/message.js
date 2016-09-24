@@ -41,7 +41,7 @@ var message = {
 			        'Authorization' : 'Bearer ' + tokeny
 			    },
 	  		json : [{
-	  				"to"      : [req.body.rec],
+	  				"to"      : req.body.rec,
 			                "from"    : req.body.from,
 			                "message" : req.body.message
   				}]
