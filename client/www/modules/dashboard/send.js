@@ -130,13 +130,13 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 	           	{
 	           	$http.post('/authenticateText')
 		 	.then(function(response){
-		          //console.log(response);
-		          $scope.token = response.data.payload.access_token;
-		          //console.log($scope.token);
+		          console.log(response);
+		          $scope.token = response.data.payload;
+		          console.log($scope.token);
 		          $scope.smstok = $scope.token.payload.access_token;
-		          //console.log($scope.smstok);
+		          console.log($scope.smstok);
 		          $window.localStorage.access_token = $scope.smstok;
-		          //console.log($window.localStorage.access_token);
+		          console.log($window.localStorage.access_token);
 		         $http.post('/message' , $scope.text , 
 		        {headers : {Authorization: 'Bearer ' + auth.getToken()}})
 	                 .then(function(response){
