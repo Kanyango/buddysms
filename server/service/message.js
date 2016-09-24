@@ -52,7 +52,7 @@ var message = {
 	         	res.status(200).json(body);	
 	         	});
 			
-				res.status(200).json(docs);
+			//	res.status(200).json(docs);
 			});
 			
 			
