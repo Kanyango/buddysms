@@ -142,6 +142,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 	                 .then(function(response){
 	                	$scope.repy = response.data.status_code;
 	                 	console.log($scope.repy);
+	                 	console.log($scope.text);
 	                 	
 	                 });
 		      });	
