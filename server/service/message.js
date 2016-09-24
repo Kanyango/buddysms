@@ -37,7 +37,7 @@ var message = {
 	  		method: 'POST',
 	  		headers: {
 			        'Content-Type': 'application/json',
-			        'Authorization' : 'Bearer' + 9cd5fd10-646a-4e7d-82a1-eb6aea787154
+			        'Authorization' : 'Bearer 9cd5fd10-646a-4e7d-82a1-eb6aea787154'
 			    },
 	  		json : [{
 	  				"to"      : req.body.rec,
