@@ -120,19 +120,18 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
       	{
       		 $http.post('/message' , $scope.text , 
 		   {headers : {Authorization: 'Bearer ' + auth.getToken()}})
-	           .success(function(data, status, headers, config){
-	           	$scope.rey = status;
-	           	$scope.yey = data;
+	           .then(function(response){
+	           	$scope.rey = response.data.status_code;
+	           	$scope.yey = response.data;
 	           	console.log($scope.rey);
 	           	console.log($scope.yey);
 	           	console.log($scope.yey + 'Kipii');
-	           })
-	           .error(function(data, status, headers, config)
-	           { 
+	           	if($scope.rey > 299)
+	           	{
 	           	$http.post('/authenticateText')
-		 	.success(function(response){
+		 	.then(function(response){
 		          //console.log(response);
-		          $scope.token = data.payload.access_token;
+		          $scope.token = response.data.payload.access_token;
 		          //console.log($scope.token);
 		          $scope.smstok = $scope.token.payload.access_token;
 		          //console.log($scope.smstok);
@@ -140,15 +139,17 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 		          //console.log($window.localStorage.access_token);
 		         $http.post('/message' , $scope.text , 
 		        {headers : {Authorization: 'Bearer ' + auth.getToken()}})
-	                 .success(function(response){
-	                 	$scope.repy = response.data.status_code;
+	                 .then(function(response){
+	                	$scope.repy = response.data.status_code;
 	                 	console.log($scope.repy);
 	                 	
 	                 });
-		      });
+		      });	
+	           	}
 	           });
+	        
       	}
-      }
+      
       	
       	         
      
