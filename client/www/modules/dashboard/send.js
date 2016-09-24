@@ -121,8 +121,8 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
       		 $http.post('/message' , $scope.text , 
 		   {headers : {Authorization: 'Bearer ' + auth.getToken()}})
 	           .success(function(response){
-	           	$scope.rey = response.data.status_code;
-	           	$scope.yey = response.data;
+	           	$scope.rey = response.status_code;
+	           	$scope.yey = response;
 	           	console.log($scope.rey);
 	           	console.log($scope.yey);
 	           	console.log($scope.yey + 'Kipii');
@@ -132,7 +132,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 	           	$http.post('/authenticateText')
 		 	.then(function(response){
 		          //console.log(response);
-		          $scope.token = response.data;
+		          $scope.token = response.data.payload.access_token;
 		          //console.log($scope.token);
 		          $scope.smstok = $scope.token.payload.access_token;
 		          //console.log($scope.smstok);
