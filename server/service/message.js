@@ -9,7 +9,7 @@ var message = {
 		var fieldsToSet = {
 
 			message : req.body.message,
-			to      : req.body.rec,
+			to      : req.body.bundle,
 			from    : req.body.from,
 			user    : req.payload._id
 		};
