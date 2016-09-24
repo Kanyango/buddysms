@@ -124,6 +124,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 	           	$scope.rey = response.data.status_code;
 	           	$scope.yey = response;
 	           	console.log($scope.rey);
+	           	console.log($scope.text);
 	           	console.log($scope.yey);
 	           	console.log($scope.yey + 'Kipii');
 	           	if($scope.rey > 299)
