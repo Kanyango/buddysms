@@ -2,7 +2,7 @@
   "name": "smsapp",
   "description": "your texting buddy",
   "version": "0.1.10",
-  "main" : "app.js",
+  "main" : "cluster.js",
   "keywords": [
     "smsapp",
     "sms buddy"
@@ -17,7 +17,7 @@
     "url": "https://github.com/Kanyango/buddysms.git"
   },
   "scripts": {
-    "start": "node app.js"
+    "start": "node cluster.js"
   },
   "engines": {
     "node": "4.1.1",
