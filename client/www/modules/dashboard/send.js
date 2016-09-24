@@ -149,6 +149,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 	           });
 	        
       	}
+      };
       
       	
       	         
