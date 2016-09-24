@@ -37,7 +37,7 @@ var message = {
 	  		method: 'POST',
 	  		headers: {
 			        'Content-Type': 'application/json',
-			        'Authorization' : 'Bearer ' + req.body.token
+			        'Authorization' : Bearer  req.body.token
 			    },
 	  		json : [{
 	  				"to"      : req.body.rec,
