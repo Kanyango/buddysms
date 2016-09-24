@@ -13,7 +13,7 @@ var message = {
 			from    : req.body.from,
 			user    : req.payload._id
 		};
-
+		var tokeny = req.body.token;
 		req.app.db.models.Message.create(fieldsToSet , 
 			function(err ,  docs){
 
@@ -31,13 +31,14 @@ var message = {
 			}
 
 			}); */
+			
 			request({
 	  		
 	  		url: 'https://sms.solutions4mobiles.com/apis/sms/mt/v2/send',
 	  		method: 'POST',
 	  		headers: {
 			        'Content-Type': 'application/json',
-			        'Authorization' : 'Bearer ' + req.body.token
+			        'Authorization' : 'Bearer ' + tokeny
 			    },
 	  		json : [{
 	  				"to"      : req.body.rec,
