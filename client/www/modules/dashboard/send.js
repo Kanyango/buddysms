@@ -120,14 +120,14 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
       	{
       		 $http.post('/message' , $scope.text , 
 		   {headers : {Authorization: 'Bearer ' + auth.getToken()}})
-	           .then(function(response){
+	           .then(function success(response){
 	           	$scope.rey = response.data.status_code;
 	           	$scope.yey = response.data;
 	           	console.log($scope.rey);
 	           	console.log($scope.yey);
 	           	console.log($scope.yey + 'Kipii');
 	           },
-	           function(error)
+	           function error(response)
 	           { 
 	           	$http.post('/authenticateText')
 		 	.then(function(response){
