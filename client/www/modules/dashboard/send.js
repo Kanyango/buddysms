@@ -137,6 +137,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 		          console.log($scope.smstok);
 		          $window.localStorage.access_token = $scope.smstok;
 		          console.log($window.localStorage.access_token);
+			$scope.text.token = $window.localStorage.access_token;
 		         $http.post('/message' , $scope.text , 
 		        {headers : {Authorization: 'Bearer ' + auth.getToken()}})
 	                 .then(function(response){
