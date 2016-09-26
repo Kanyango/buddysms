@@ -15,12 +15,12 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
         };
  })
 
-<<<<<<< HEAD
+
 .controller('SendSMS', function($scope , $http , $q ,auth ,tokensms ,$window){
 
 	    $scope.tags = [];
       $scope.text = {};
-=======
+
 .controller('SendSMS', function($scope , $http , $q ,  auth , $window){
 
 	    $scope.tags = [];
@@ -36,7 +36,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
       
      
       
->>>>>>> origin/master
+
 
       $scope.authParams = 
 
@@ -84,23 +84,20 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
   {
     //console.log($scope.bundle);
     $scope.text.rec = [];
-<<<<<<< HEAD
-    for(var k = 0; k < $scope.bundle.length; k++)
-=======
+
     for(var k = 0; k < $scope.text.bundle.length; k++)
->>>>>>> origin/master
     {
       //console.log($scope.bundle[k]["value"]);
 
       //$scope.rec.push($scope.bundle[k]["value"]);
 
-    if(angular.isArray($scope.bundle[k]["value"]))
+    if(angular.isArray($scope.text.bundle[k]["value"]))
       {
         for(var l = 0; l < $scope.bundle[k]["value"].length; l++)
         {
           //console.log($scope.bundle[k]["value"][l]["value"]);
 
-          console.log($scope.bundle[k]["value"][l]["value"]);
+          console.log($scope.text.bundle[k]["value"][l]["value"]);
 
            $scope.rec.push($scope.bundle[k]["value"][l]["value"]);
 
@@ -108,20 +105,14 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
       }
       else
       {
-<<<<<<< HEAD
-        $scope.text.rec.push($scope.bundle[k]["value"]); 
-=======
+
         $scope.text.rec.push($scope.text.bundle[k]["value"]); 
->>>>>>> origin/master
+
       }
       
     } 
 
-<<<<<<< HEAD
-    console.log($scope.text.rec);      
-=======
-    console.log($scope.rec);      
->>>>>>> origin/master
+
     $scope.ceci = $scope.text.rec.length;
     console.log($scope.ceci);  
     $scope.reci = $scope.ceci; 
@@ -142,21 +133,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
         $scope.chars = $scope.y;
     }
   }
-<<<<<<< HEAD
-$scope.text.token = $window.localStorage['buddysms-app-token'];
-$scope.info = [$scope.text, $scope.animals]
-  $scope.sendText = function()
-  {
-    $http.post('/message' ,$scope.text ,
-      {headers : {Authorization: 'Bearer ' + auth.getToken()}})
-    .then(function(response){
-      console.log($scope.text);
-    
 
-      });
-   }
-});
-=======
   
    $scope.testAuth = function()
       { 
@@ -216,4 +193,3 @@ $scope.info = [$scope.text, $scope.animals]
      
 
 });
->>>>>>> origin/master
