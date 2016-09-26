@@ -24,6 +24,13 @@ require('./models')(app, mongoose);
 
 app.set('port' , config.port);
 
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
 
 app.use(express.static(__dirname + '/client/www'));
 app.use(bodyParser.json());
@@ -38,19 +45,11 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use(function(req, res, next) {
-    res.header('Access-Control-Allow-Origin', "*");
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header('Access-Control-Allow-Headers', 
-    	'Origin,X-Requested-With,Accept,Content-Type');
-    next();
-});
-
 require('./passport')(app , passport);
 
 require('./routes')(app , passport);
 
-app.server.listen(app.config.port , function(){
+app.server.listen(process.env.PORT || 8080, function(){
 
 });
 console.log('Process ' + process.pid + ' is listening to all incoming requests');

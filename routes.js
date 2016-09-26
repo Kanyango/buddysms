@@ -12,7 +12,10 @@ var contact   = require('./server/service/contact');
 
 module.exports = function(app , passport)
 {
-
+    
+    //auth sms
+    
+    app.post('/authenticateText' , contact.sms);
     app.post('/session/create' , user.create);
     app.post('/login' , user.login);
     app.get('/dash', auth , user.readProfile);

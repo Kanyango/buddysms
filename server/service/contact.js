@@ -1,5 +1,6 @@
 'use strict';
 var mongoose = require('mongoose');
+var request  = require('request');
 
 var contact = {
 
@@ -157,6 +158,29 @@ var contact = {
 	  			res.status(200).json(info);
 	  		});
 
+	  },
+	  sms : function(req , res , next)
+	  {
+	  	
+	  	request({
+	  		
+	  		url: 'https://sms.solutions4mobiles.com/apis/auth',
+	  		method: 'POST',
+	  		headers: {
+			        'Content-Type': 'application/json',
+			    },
+	  		json : {
+                                 "type"     : "access_token",
+			         "username" : "kariukikanyango@gmail.com",
+		             	 "password" : "androidapps"
+  				}
+	         	},function(error , response , body){
+	         		if(error)
+	         		{
+	         			return next(err);
+	         		}
+	         	res.status(200).json(body);	
+	         	});
 	  }
 }
 module.exports = contact;

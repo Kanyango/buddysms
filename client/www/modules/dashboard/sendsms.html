@@ -18,7 +18,11 @@
 		<div class="col-md-8">
 			<oi-select 
 			oi-options="item.name for item in contacts track by item.value"
+<<<<<<< HEAD
             ng-model="bundle"
+=======
+                    ng-model="text.bundle"
+>>>>>>> origin/master
 		    multiple
 		    ng-blur="send()"
 		    placeholder="Select recipients" ng-blur="send()">
@@ -33,6 +37,9 @@
 	</div>
 
 	<div class="form-group">
+		<div class="test">
+			<button class="btn btn-md btn-info" ng-click="testAuth()">Test Auth</button>
+		</div>
 		<label class="col-md-2  control-label">Message</label>
 		<div class="col-md-8">
 			<textarea class="form-control" rows="8" name="message" ng-blur="count()"

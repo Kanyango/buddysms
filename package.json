@@ -2,6 +2,7 @@
   "name": "smsapp",
   "description": "your texting buddy",
   "version": "0.1.10",
+  "main" : "cluster.js",
   "keywords": [
     "smsapp",
     "sms buddy"
@@ -16,34 +17,40 @@
     "url": "https://github.com/Kanyango/buddysms.git"
   },
   "scripts": {
-    "main": "node app.js"
+    "start": "node cluster.js"
   },
   "engines": {
     "node": "4.1.1",
     "npm": "3.8.8"
   },
   "dependencies": {
+<<<<<<< HEAD
     "angular-chart.js": "^1.0.3",
     "angular-multiple-select": "^1.1.2",
     "angular-nvd3": "^1.0.8",
+=======
+>>>>>>> origin/master
     "async": "^1.x.x",
     "bcrypt": "^0.8.x",
     "body-parser": "^1.15.2",
     "connect-mongo": "^1.2.1",
     "cookie-parser": "^1.x.x",
     "csurf": "^1.x.x",
-    "d3": "^4.2.1",
     "emailjs": "^0.3.x",
+    "request": "^2.75.0",
     "express": "^4.14.0",
+    "express-jwt": "^3.4.0",
     "express-session": "^1.14.0",
+    "express-unless": "^0.3.0",
     "jsonwebtoken": "^7.1.6",
+    "lodash.set": "^4.0.0",
+    "mongodb": "^2.1.21",
+    "mongodb-core": "^1.3.21",
     "mongoose": "^4.5.5",
-    "mongoskin": "^2.1.0",
-    "morgan": "^1.x.x",
-    "n3-charts": "^2.0.27",
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
+<<<<<<< HEAD
     "passport-twitter": "^1.0.4",
     "request": "^2.75.0"
   },
@@ -71,5 +78,8 @@
     "karma-phantomjs-launcher": "~0.1",
     "mongodb": "~2.0",
     "prompt": "^0.2.14"
+=======
+    "passport-twitter": "^1.0.4"
+>>>>>>> origin/master
   }
 }

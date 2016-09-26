@@ -7,10 +7,14 @@ angular.module('buddySms',
 	'buddySms.smstoken',
 	'angular-storage',
 	'buddySms.signUp',
+<<<<<<< HEAD
     'buddySms.login',
     'buddySms.recovery'
+=======
+        'buddySms.login'
+>>>>>>> origin/master
 	])
-.config(function($stateProvider , $urlRouterProvider){
+.config(function($stateProvider , $urlRouterProvider , $httpProvider){
 
 	$stateProvider
 	.state('home',
@@ -42,4 +46,7 @@ angular.module('buddySms',
 		 templateUrl: '/modules/about.html' 
 		});
 	$urlRouterProvider.otherwise('/home');
+	
+	$httpProvider.defaults.withCredentials = true;
+        delete $httpProvider.defaults.headers.common["X-Requested-With"];
 });

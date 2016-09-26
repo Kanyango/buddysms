@@ -1,6 +1,5 @@
 angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 
-
 .directive('myModelValue', function () {
         return {
             restrict: 'A',
@@ -16,10 +15,28 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
         };
  })
 
+<<<<<<< HEAD
 .controller('SendSMS', function($scope , $http , $q ,auth ,tokensms ,$window){
 
 	    $scope.tags = [];
       $scope.text = {};
+=======
+.controller('SendSMS', function($scope , $http , $q ,  auth , $window){
+
+	    $scope.tags = [];
+            $scope.text = {};
+            $scope.text.token = $window.localStorage.access_token;
+            
+            $scope.authParams = 
+		      { 
+		        "type" : "access_token",
+		        "username" : "Dave",
+		        "password" : "androidapps"
+		      }
+      
+     
+      
+>>>>>>> origin/master
 
       $scope.authParams = 
 
@@ -67,7 +84,11 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
   {
     //console.log($scope.bundle);
     $scope.text.rec = [];
+<<<<<<< HEAD
     for(var k = 0; k < $scope.bundle.length; k++)
+=======
+    for(var k = 0; k < $scope.text.bundle.length; k++)
+>>>>>>> origin/master
     {
       //console.log($scope.bundle[k]["value"]);
 
@@ -87,12 +108,20 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
       }
       else
       {
+<<<<<<< HEAD
         $scope.text.rec.push($scope.bundle[k]["value"]); 
+=======
+        $scope.text.rec.push($scope.text.bundle[k]["value"]); 
+>>>>>>> origin/master
       }
       
     } 
 
+<<<<<<< HEAD
     console.log($scope.text.rec);      
+=======
+    console.log($scope.rec);      
+>>>>>>> origin/master
     $scope.ceci = $scope.text.rec.length;
     console.log($scope.ceci);  
     $scope.reci = $scope.ceci; 
@@ -113,6 +142,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
         $scope.chars = $scope.y;
     }
   }
+<<<<<<< HEAD
 $scope.text.token = $window.localStorage['buddysms-app-token'];
 $scope.info = [$scope.text, $scope.animals]
   $scope.sendText = function()
@@ -126,3 +156,64 @@ $scope.info = [$scope.text, $scope.animals]
       });
    }
 });
+=======
+  
+   $scope.testAuth = function()
+      { 
+      	if(typeof $window.localStorage.access_token === 'undefined' || $window.localStorage.access_token === null)
+      	{
+         $http.post('/authenticateText')
+         .then(function(response){
+          //console.log(response);
+          $scope.token = response.data;
+          //console.log($scope.token);
+          $scope.smstok = $scope.token.payload.access_token;
+          //console.log($scope.smstok);
+          $window.localStorage.access_token = $scope.smstok;
+          //console.log($window.localStorage.access_token);
+        });	
+      	}
+      	else
+      	{
+      		 $http.post('/message' , $scope.text , 
+		   {headers : {Authorization: 'Bearer ' + auth.getToken()}})
+	           .then(function(response){
+	           	$scope.rey = response.data.status_code;
+	           	$scope.dope = response;
+			 console.log($scope.dope);
+	           	console.log($scope.rey);
+	           	console.log($scope.text);
+	           	
+	           	if($scope.rey > 299)
+	           	{
+	           	$http.post('/authenticateText')
+		 	.then(function(response){
+		          console.log(response);
+		          $scope.token = response.data.payload;
+		          console.log($scope.token);
+		          $scope.smstok = $scope.token.access_token;
+		          console.log($scope.smstok);
+		          $window.localStorage.access_token = $scope.smstok;
+		          console.log($window.localStorage.access_token);
+			$scope.text.token = $window.localStorage.access_token;
+		         $http.post('/message' , $scope.text , 
+		        {headers : {Authorization: 'Bearer ' + auth.getToken()}})
+	                 .then(function(response){
+	                	$scope.repy = response.data;
+	                 	console.log($scope.repy);
+	                 	console.log($scope.text);
+	                 	
+	                 });
+		      });	
+	           	}
+	           });
+	        
+      	}
+      };
+      
+      	
+      	         
+     
+
+});
+>>>>>>> origin/master
