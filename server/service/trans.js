@@ -39,9 +39,35 @@ var trans = {
 	{
 
 		request({
-
 			
-		})
+			url: 'https://buddysms.herokuapp.com/transaction_consumer',
+			method: 'POST',
+			headers: {
+			        'Content-Type': 'application/json',
+			    },
+			json : {
+				   "service_name" : "MPESA",
+				   "business_number" : "825048",
+				   "transaction_reference" : "DE45GK45"
+				   "internal_transaction_id" : 3222
+				   "transaction_timestamp" : "2013-03-18T13:57:00Z"
+				   "transaction_type" : "Paybill"
+				   "account_number" : "445534"
+				   "sender_phone" : "+254903119111"
+				   "first_name" : "John"
+				   "middle_name" : "K"
+				   "last_name" : "Doe"
+				   "amount" : 4000
+				   "currency" : "KES"
+				   "signature" : "dfafwerewKkladaHOKJdafdf"
+				} 
+	         	},function(error , response , body){
+	         		if(error)
+	         		{
+	         			return next(err);
+	         		}
+	         	res.status(200).json(body);	
+	         	});
 
 	}
 }
