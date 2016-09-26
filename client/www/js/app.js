@@ -7,12 +7,9 @@ angular.module('buddySms',
 	'buddySms.smstoken',
 	'angular-storage',
 	'buddySms.signUp',
-<<<<<<< HEAD
     'buddySms.login',
     'buddySms.recovery'
-=======
         'buddySms.login'
->>>>>>> origin/master
 	])
 .config(function($stateProvider , $urlRouterProvider , $httpProvider){
 
