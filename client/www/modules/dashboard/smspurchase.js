@@ -41,7 +41,7 @@ angular.module('buddySms.smspurch', [])
 				$state.go('dash.home');
 
 				//update db
-				$http.post('/addsms' $scope.total)
+				//$http.post('/addsms' $scope.total)
 			}
 
 		});
