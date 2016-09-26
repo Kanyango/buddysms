@@ -16,12 +16,34 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
         };
  })
 
-.controller('SendSMS', function($scope , $http , $q ,  auth){
+.controller('SendSMS', function($scope , $http , $q ,auth ,tokensms ,$window){
 
 	    $scope.tags = [];
       $scope.text = {};
-      
 
+      $scope.authParams = 
+
+      { 
+        "type" : "access_token",
+        "username" : "",
+        "password" : ""
+      }
+      
+      $scope.testauth = function()
+      {
+        if(tokensms.checkToken() == '')
+        {
+          //get token and save to localstorage
+        }
+        else {
+          //if token exists send sms
+        }
+        $http.post('https://sms.solutions4mobile.com' , $scope.authParams)
+        .then(function(response){
+          console.log(response.data);
+        });
+      }
+      
       $http.get('/contacts', {headers : {Authorization: 'Bearer ' + auth.getToken()}})
       .success(function(response){
         $scope.contacts = response;
@@ -44,34 +66,34 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
   $scope.send = function()
   {
     //console.log($scope.bundle);
-    $scope.rec = [];
-    for(var k = 0; k < $scope.text.bundle.length; k++)
+    $scope.text.rec = [];
+    for(var k = 0; k < $scope.bundle.length; k++)
     {
       //console.log($scope.bundle[k]["value"]);
 
       //$scope.rec.push($scope.bundle[k]["value"]);
 
-    if(angular.isArray($scope.text.bundle[k]["value"]))
+    if(angular.isArray($scope.bundle[k]["value"]))
       {
-        for(var l = 0; l < $scope.text.bundle[k]["value"].length; l++)
+        for(var l = 0; l < $scope.bundle[k]["value"].length; l++)
         {
           //console.log($scope.bundle[k]["value"][l]["value"]);
 
-          console.log($scope.text.bundle[k]["value"][l]["value"]);
+          console.log($scope.bundle[k]["value"][l]["value"]);
 
-           $scope.rec.push($scope.text.bundle[k]["value"][l]["value"]);
+           $scope.rec.push($scope.bundle[k]["value"][l]["value"]);
 
         }
       }
       else
       {
-        $scope.rec.push($scope.text.bundle[k]["value"]); 
+        $scope.text.rec.push($scope.bundle[k]["value"]); 
       }
       
     } 
 
-    console.log($scope.rec);      
-    $scope.ceci = $scope.rec.length;
+    console.log($scope.text.rec);      
+    $scope.ceci = $scope.text.rec.length;
     console.log($scope.ceci);  
     $scope.reci = $scope.ceci; 
   }
@@ -91,15 +113,16 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
         $scope.chars = $scope.y;
     }
   }
-
+$scope.text.token = $window.localStorage['buddysms-app-token'];
+$scope.info = [$scope.text, $scope.animals]
   $scope.sendText = function()
   {
-    $http.post('/message' ,$scope.text, 
+    $http.post('/message' ,$scope.text ,
       {headers : {Authorization: 'Bearer ' + auth.getToken()}})
     .then(function(response){
-      $scope.text = {};
-      $scope.chars = {};
-      $scope.messages = {};
+      console.log($scope.text);
+    
+
       });
    }
 });

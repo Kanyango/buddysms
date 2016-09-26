@@ -1,0 +1,38 @@
+  <nav class="navbar navbar-default" style="margin-bottom:0px;">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a  href="#" class="navbar-brand">
+      <img src="assets/buddy-logo.png" height="40px"></a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li><a href="#">Home</a></li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+      <li><a ui-sref="signup"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+      <li><a ui-sref="login"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+    </ul>
+  </div>
+</nav>
+
+<br><br> <br>
+
+<div class="container">
+  <div class="row">
+    <div class="well text-center">
+    <p>A password will been sent to this email.</p>
+    <form role="form" class="form-horizontal">
+      <div class="form-group">
+        <label class="control-label col-md-2">Email</label>
+        <div class="col-md-6">
+          <input class="form-control" name="email" type="email" 
+          placeholder="Enter email">
+        </div>
+      </div>
+      <div class="col-md-4 col-md-offset-2">
+        <button class="btn btn-start btn-md" ng-click="recover()">Recover</button>
+      </div>
+    </form>
+    <br>
+    </div>
+  </div>
+</div>

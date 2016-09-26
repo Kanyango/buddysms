@@ -1,11 +1,14 @@
 angular.module('buddySms',
 	['ui.router',
+	'ngMessages',
 	'angularUtils.directives.dirPagination',
 	'buddySms.dataService',
 	'buddySms.auth',
+	'buddySms.smstoken',
 	'angular-storage',
 	'buddySms.signUp',
     'buddySms.login',
+    'buddySms.recovery'
 	])
 .config(function($stateProvider , $urlRouterProvider){
 
@@ -26,6 +29,12 @@ angular.module('buddySms',
 		 url: '/login',
 		 templateUrl: '/modules/login.html',
 		 controller: 'LoginController' 
+		})
+	 .state('recovery',
+		{
+		 url: '/recovery',
+		 templateUrl: '/modules/recovery.html',
+		 controller: 'RecoveryController' 
 		})
 	.state('about',
 		{

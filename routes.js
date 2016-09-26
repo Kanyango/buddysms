@@ -17,6 +17,11 @@ module.exports = function(app , passport)
     app.post('/login' , user.login);
     app.get('/dash', auth , user.readProfile);
 
+    //recover pass
+    app.get('/recover' , auth , user.recover);
+    //buy sms
+    app.post('/confirmsms' , auth , trans.purchsms);
+
 
     app.post('/message' , auth ,   message.create);
     app.post('/trans' , auth ,   trans.create);

@@ -1,4 +1,7 @@
 
+p{
+	font-size: 16px;
+}
 .navbar-default {
 
 	height: 80px;
@@ -24,7 +27,7 @@
 }
 #buddyHeader
 {
-	letter-spacing: 0.02em;
+	letter-spacing: 6px;
 }
 
 #user {
@@ -40,6 +43,7 @@
 
 	background-color: #33CC99;
 	color:#fff;
+	margin-bottom: 0px;
 }
 .btn-start{
 
@@ -72,4 +76,46 @@
 #priceHeder {
 
 	padding: 20px;
+}
+#end{
+
+	letter-spacing: 5px;
+
+}
+#possy
+{
+	background-color: #F8F8F8;
+	color: #33CC99;
+}
+#possyHeads
+{
+	color: #33CC99;
+	word-spacing: 2px;
+	letter-spacing: 1px;
+}
+#more
+{
+	word-spacing: 2px;
+	letter-spacing: .5px;
+}
+#support
+{
+	background-color: #F8F8F8;
+
+}
+#supportServ
+{
+	color: #D92121;
+	word-spacing: 2px;
+	letter-spacing: 1px;
+}
+#contactForm
+{
+	background-color: #71dab7;
+	color: #fff;
+	font-size: 16px;
+}
+#footer
+{
+	background-color:  #F8F8F8;
 }

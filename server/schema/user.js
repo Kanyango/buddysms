@@ -10,10 +10,10 @@ module.exports = function(app , mongoose)
 		hash     : String,
 		salt     : String,
 		phone    : {type: Number , unique: true},
-		username: {type: String , unique: true , lowercase: true},
 		smss     : {type: Number},
 		bname    : String,
 	    industry : String,
+	    email    : {type: String , unique: true , lowercase: true},
 	    location : String,
 	    address  : String,
 	    office   : String,
@@ -51,7 +51,7 @@ module.exports = function(app , mongoose)
         exp.setDate(today.getDate() + 60);
 
         return jwt.sign({_id: this._id ,
-                          username : this.username ,
+                          email : this.email ,
                           exp: parseInt(exp.getTime() / 1000), } , app.config.secret );
 	}; 
     app.db.model('User', userSchema);

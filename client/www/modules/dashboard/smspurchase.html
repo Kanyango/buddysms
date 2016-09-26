@@ -1,0 +1,71 @@
+<br>
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 well">
+			<div class="procedure">
+				<form class="form-horizontal" role="form" name="smsPurch">
+					<div class="form-group">
+						<label class="control-label col-md-4"
+						 ng-class="{'has-errors' : smsPurch.number.$invalid , 
+                          'no-errors'  : smsPurch.number.$valid}"
+						>Sms Credits</label>
+						<div class="col-md-4">
+						<input class="form-control" name="total" type="number" 
+						ng-model="total" placeholder="Enter no of sms to buy"
+						required ng>
+						</div>
+						<div class="error-container" ng-show="smsPurch.number.$error" 
+                              ng-messages="smsPurch.number.$error">
+						    <div class="error" ng-message="required">
+						      <i class="ion-information-circled"></i> 
+						      This field is required!
+						  </div>
+					</div>
+					</div>
+					<div ng-show="total < 500">
+						<p>Minimum no of sms purchase is 500 </p>
+					</div>
+					<div class="form-group">
+						<label class="col-md-4 control-label">Total cost plus V.A.T</label>
+						<div class="col-md-4">
+							<input class="form-control" placeholder="no of chars"
+							my-sms-value="{{total * 4/100 + total}}" ng-model="text.messages" 
+							readonly="readonly">
+						</div>
+					</div>
+					<div class="col-md-4 col-md-offset-2">
+			<button class="btn btn-start btn-md" ng-click="buy()">buy</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-md-8 col-md-offset-2 well">
+			<div class="text-center">
+				<h2><u> How to purchase</u></h2>
+			</div>
+			<p>1.Go to Mpesa</p>
+			<form class="form-horizontal">
+				<div class="form-group">
+				<label class="control-label col-md-4">Enter Your phone number</label>
+				<div class="col-md-5">
+					<input class="form-control" name="sender_phone" ng-model="trans.sender_phone">
+				</div>
+				</div>
+				<div class="form-group">
+				<label class="control-label col-md-4">Enter transaction Id No.</label>
+				<div class="col-md-5">
+		<input class="form-control" name="transaction_reference" ng-model="trans.transaction_reference">
+				</div>
+				</div>
+				<div class="col-md-4 col-md-offset-4">
+					<button class="btn btn-start btn-md" ng-click="confirm()">Confirm Payment</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

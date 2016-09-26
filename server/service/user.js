@@ -11,19 +11,19 @@ var user = {
 			res.status(400).json({message : 'Please fill out the fields'});
 		}
 
-		req.app.db.models.User.findOne({username: req.body.username},
+		req.app.db.models.User.findOne({email: req.body.username},
 			function(err , user){
 				if(user)
 				{
 
-					res.status(500).json('username already exists');
+					res.status(500).json('email already exists');
 
 				}
 			});
 
 		var user = new req.app.db.models.User();
 
-		user.username = req.body.username;
+		user.email = req.body.username;
 		user.phone = req.body.phone;
 		user.setPassword(req.body.password)
 
@@ -90,6 +90,17 @@ var user = {
                 res.status(200).json(user);
             });
         }
+	},
+	recover : function(req , res , next)
+	{
+		req.app.db.models.User.findById(req.payload._id)
+		.exec(function(err , user){
+			if(err)
+			{
+				return next(err);
+			}
+			res.status(200).json(user);
+		});
 	}
 
 };

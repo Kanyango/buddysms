@@ -1,5 +1,6 @@
 'use strict';
 var mongoose = require('mongoose');
+var request = require('request');
 
 var trans = {
 
@@ -33,6 +34,15 @@ var trans = {
 			});
 				res.status(200).json(docs);
 			});
+	},
+	purchsms : function(req , res ,next)
+	{
+
+		request({
+
+			
+		})
+
 	}
 }
 module.exports = trans;

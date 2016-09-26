@@ -11,7 +11,7 @@ var TwitterStrategy  = require('passport-twitter').Strategy;
      function(username, password, done) {
 
         process.nextTick(function(){ 
-          app.db.models.User.findOne({ username: username }, function (err, user) {
+          app.db.models.User.findOne({ email: username}, function (err, user) {
       if (err) { return done(err); }
       if (!user) {
         return done(null, false, { message: 'Incorrect email.' });

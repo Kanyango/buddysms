@@ -3,7 +3,8 @@ angular.module('buddySms.dash',
 	'buddySms.trans',
 	'buddySms.contact',
 	'buddySms.groups',
-	'buddySms.outbox','buddySms.home'])
+	'buddySms.outbox','buddySms.home',
+	'buddySms.smspurch'])
 
 .config(function($stateProvider){
 	$stateProvider
@@ -53,6 +54,12 @@ angular.module('buddySms.dash',
 		 url: '/dash/outbox',
 		 templateUrl: '/modules/dashboard/outbox.html',
 		 controller : 'OutboxController'
+		})
+	.state('dash.purchase',
+		{
+		 url: '/smspurchase',
+		 templateUrl: '/modules/dashboard/smspurchase.html',
+		 controller : 'SmsPurchController'
 		})
 	.state('dash.contact.groups',
 		{

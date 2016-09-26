@@ -23,7 +23,7 @@
     "npm": "3.8.8"
   },
   "dependencies": {
-    "angular-chart.js": "^1.0.0",
+    "angular-chart.js": "^1.0.3",
     "angular-multiple-select": "^1.1.2",
     "angular-nvd3": "^1.0.8",
     "async": "^1.x.x",
@@ -44,7 +44,8 @@
     "passport": "^0.3.2",
     "passport-facebook": "^2.1.1",
     "passport-local": "^1.0.0",
-    "passport-twitter": "^1.0.4"
+    "passport-twitter": "^1.0.4",
+    "request": "^2.75.0"
   },
   "devDependencies": {
     "grunt": "^0.4.5",

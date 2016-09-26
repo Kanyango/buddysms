@@ -47,7 +47,7 @@ angular.module('buddySms.auth',[])
         var payload = token.split('.')[1];
         payload = $window.atob(payload);
         payload = JSON.parse(payload);
-        return payload.username;
+        return payload.email;
       }
 	};
 

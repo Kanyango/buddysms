@@ -8,8 +8,7 @@ angular.module('buddySms.dataService',[])
 	{
 
 	return $http.get('/dash' ,
-		 {headers : {Authorization: 'Bearer '+auth.getToken()}}
-		 );
+		 {headers : {Authorization: 'Bearer '+auth.getToken()}});
 
 	};
 
