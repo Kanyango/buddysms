@@ -15,51 +15,13 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
         };
  })
 
-
-.controller('SendSMS', function($scope , $http , $q ,auth ,tokensms ,$window){
-
-	    $scope.tags = [];
-      $scope.text = {};
-
 .controller('SendSMS', function($scope , $http , $q ,  auth , $window){
 
 	    $scope.tags = [];
             $scope.text = {};
             $scope.text.token = $window.localStorage.access_token;
-            
-            $scope.authParams = 
-		      { 
-		        "type" : "access_token",
-		        "username" : "Dave",
-		        "password" : "androidapps"
-		      }
-      
-     
-      
-
-
-      $scope.authParams = 
-
-      { 
-        "type" : "access_token",
-        "username" : "",
-        "password" : ""
-      }
-      
-      $scope.testauth = function()
-      {
-        if(tokensms.checkToken() == '')
-        {
-          //get token and save to localstorage
-        }
-        else {
-          //if token exists send sms
-        }
-        $http.post('https://sms.solutions4mobile.com' , $scope.authParams)
-        .then(function(response){
-          console.log(response.data);
-        });
-      }
+   
+ 
       
       $http.get('/contacts', {headers : {Authorization: 'Bearer ' + auth.getToken()}})
       .success(function(response){
@@ -93,13 +55,13 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 
     if(angular.isArray($scope.text.bundle[k]["value"]))
       {
-        for(var l = 0; l < $scope.bundle[k]["value"].length; l++)
+        for(var l = 0; l < $scope.text.bundle[k]["value"].length; l++)
         {
           //console.log($scope.bundle[k]["value"][l]["value"]);
 
           console.log($scope.text.bundle[k]["value"][l]["value"]);
 
-           $scope.rec.push($scope.bundle[k]["value"][l]["value"]);
+           $scope.rec.push($scope.text.bundle[k]["value"][l]["value"]);
 
         }
       }
