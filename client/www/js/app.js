@@ -8,7 +8,7 @@ angular.module('buddySms',
 	'angular-storage',
 	'buddySms.signUp',
     'buddySms.login',
-    'buddySms.recovery'
+    'buddySms.recovery',
         'buddySms.login'
 	])
 .config(function($stateProvider , $urlRouterProvider , $httpProvider){
