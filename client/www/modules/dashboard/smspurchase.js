@@ -24,7 +24,7 @@ angular.module('buddySms.smspurch', [])
 	$scope.confirm = function()
 	{
 		$http.post('/confirmsms' ,$scope.trans , 
-			{header: {Authorization: 'Bearer '+ auth.getToken()}});
+			{header: {Authorization: 'Bearer '+ auth.getToken()}})
 		.then(function(response){
 
 			$scope.smspurchresp = response.data.status;
