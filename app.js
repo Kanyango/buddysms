@@ -1,4 +1,3 @@
-var cluster = require('cluster');
 var config  = require('./config');
 var express = require('express');
 var session = require('express-session');
@@ -10,26 +9,6 @@ var http     = require('http');
 var path     = require('path');
 var jwt      = require('jsonwebtoken');
 
-if(cluster.isMaster) {
-    var numWorkers = require('os').cpus().length;
-
-    console.log('Master cluster setting up ' + numWorkers + ' workers...');
-
-    for(var i = 0; i < numWorkers; i++) {
-        cluster.fork();
-    }
-
-    cluster.on('online', function(worker) {
-        console.log('Worker ' + worker.process.pid + ' is online');
-    });
-
-    cluster.on('exit', function(worker, code, signal) {
-        console.log('Worker ' + worker.process.pid + ' died with code: ' + code + ', and signal: ' + signal);
-        console.log('Starting a new worker');
-        cluster.fork();
-    });
-} else
-{
 
 var app = express();
 
@@ -76,7 +55,7 @@ app.server.listen(process.env.PORT || 7000 , function(){
 });
 console.log('Process ' + process.pid + ' is listening to all incoming requests');
 	
-}
+
 
 
 
