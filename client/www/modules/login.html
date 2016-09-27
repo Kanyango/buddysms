@@ -27,11 +27,11 @@
 	       </div>
 			<form class="form-horizontal" role="form">
 				<div class="form-group">
-					<label class="control-label col-md-2">password</label>
+					<label class="control-label col-md-2">email</label>
 					<div class="col-md-6">
-					<input type="password" class="form-control"  name="password"
-					ng-model="user.password"
-					placeholder="Enter your password">
+					<input type="email" class="form-control" name="username"
+					ng-model="user.username"
+					placeholder="Enter your email">
 					</div>
 				</div>
 				<div class="form-group">
@@ -42,11 +42,11 @@
 					placeholder="Enter your password">
 					</div>
 				</div>
-				
+				<div class="form-group">
 				 <div class="col-md-4 col-md-offset-2">
 					<button class="btn btn-md btn-success" type="button"
 					ng-click="login()">Login</button>
-				
+				</div>
 				</div>
 			</form>
 			<br>
