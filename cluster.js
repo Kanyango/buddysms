@@ -18,5 +18,5 @@ if(cluster.isMaster)
 	});
 }else{
 
-	require('./app');
+	require('./app.js');
 }
