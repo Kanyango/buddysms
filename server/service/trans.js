@@ -40,7 +40,7 @@ var trans = {
 
 		request({
 			
-			url: 'https://buddysms.herokuapp.com/transaction_consumer',
+			url: 'https://buddysms.herokuapp.com/#/dash/smspurchase',
 			method: 'POST',
 			headers: {
 			        'Content-Type': 'application/json',
@@ -59,7 +59,7 @@ var trans = {
 				   "last_name" : "Doe",
 				   "amount" : 4000,
 				   "currency" : "KES",
-				   "signature" : "dfafwerewKkladaHOKJdafdf"
+				   "signature" : "ce801586edeace1f01dc0ca6a03625c1c76af3c7"
 				} 
 	         	},function(error , response , body){
 	         		if(error)
