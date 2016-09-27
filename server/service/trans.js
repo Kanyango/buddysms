@@ -40,10 +40,11 @@ var trans = {
 
 		request({
 			
-			url: 'https://buddysms.herokuapp.com/#/dash/smspurchase',
+			url: 'https://buddysms.herokuapp.com/dash/smspurchase',
 			method: 'POST',
 			headers: {
 			        'Content-Type': 'application/json',
+				'kanyango'    : 'k3yb0@rd',
 			    },
 			json : {
 				   "service_name" : "MPESA",
