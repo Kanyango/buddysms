@@ -1,15 +1,25 @@
-var throng = require('throng');
+'use strict';
 
+var cluster = require('cluster');
 
-var WORKERS = process.env.WEB_CONCURRENCY || 1;
-var PORT = process.env.PORT || 8080;
+if(cluster.isMaster)
+{
+	var numWorkers = require('os').cpus().length;
 
+	console.log('Master cluster is running' + numWorkers + 'workers.....');
 
-throng(start, {
-  workers: WORKERS,
-  lifetime: Infinity
-});
+	for(var i = 0; i< numWorkers ; i++)
+	{
+		cluster.fork();
+	}
+	cluster.on('online' , function(worker){
+		console.log('Worker' + worker.process.id + 'is online' );
+	});
+	cluster.on('exit' , function(worker , code , signal){
+		console.log('Worker' + worker.process.id + ' died with code: ' + code + ', and signal: ' + signal);
+    cluster.fork();
+	});
+}else{
 
-function start(){
-      require('/app');
+	require('./app');
 }
