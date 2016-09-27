@@ -1,23 +1,15 @@
-var cluster = require('cluster');
+var throng = require('throng');
 
-if(cluster.isMaster) {
-    var numWorkers = require('os').cpus().length;
 
-    console.log('Master cluster setting up ' + numWorkers + ' workers...');
+var WORKERS = process.env.WEB_CONCURRENCY || 1;
+var PORT = process.env.PORT || 8080;
 
-    for(var i = 0; i < numWorkers; i++) {
-        cluster.fork();
-    }
 
-    cluster.on('online', function(worker) {
-        console.log('Worker ' + worker.process.pid + ' is online');
-    });
+throng(start, {
+  workers: WORKERS,
+  lifetime: Infinity
+});
 
-    cluster.on('exit', function(worker, code, signal) {
-        console.log('Worker ' + worker.process.pid + ' died with code: ' + code + ', and signal: ' + signal);
-        console.log('Starting a new worker');
-        cluster.fork();
-    });
-} else {
-    require('/app');
+function start(){
+      require('/app');
 }
