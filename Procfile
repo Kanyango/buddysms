@@ -1,3 +1,3 @@
-web: node cluster.js
-heroku ps:restart
+web: node app.js
+
 
