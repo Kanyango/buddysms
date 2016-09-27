@@ -23,7 +23,7 @@ angular.module('buddySms.smspurch', [])
 
 	$scope.confirm = function()
 	{
-		$http.post('/confirmsms' ,$scope.trans , 
+		$http.post('/confirmsms' , 
 			{header: {Authorization: 'Bearer '+ auth.getToken()}})
 		.then(function(response){
 
