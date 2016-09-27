@@ -22,7 +22,7 @@ app.db.once('open', function(){
 
 require('./models')(app, mongoose);
 
-var port = process.env.PORT || 7000);
+//var port = process.env.PORT || 7000;
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -49,10 +49,10 @@ require('./passport')(app , passport);
 
 require('./routes')(app , passport);
 
-app.listen(port , function(){
+app.server.listen(process.env.PORT || 7000 , function(){
 
 });
-//console.log('Process ' + process.pid + ' is listening to all incoming requests');
+console.log('Process ' + process.pid + ' is listening to all incoming requests');
 
 
 
