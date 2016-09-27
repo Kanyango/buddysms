@@ -53,7 +53,7 @@ var trans = {
 				   "transaction_timestamp" : "2013-03-18T13:57:00Z",
 				   "transaction_type" : "Paybill",
 				   "account_number" : "445534",
-				   "sender_phone" : "+254903119111"
+				   "sender_phone" : "+254903119111",
 				   "first_name" : "John",
 				   "middle_name" : "K",
 				   "last_name" : "Doe",
