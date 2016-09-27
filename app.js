@@ -49,7 +49,7 @@ require('./passport')(app , passport);
 
 require('./routes')(app , passport);
 
-app.listen(process.env.PORT || 8000 , function(){
+app.server.listen(process.env.PORT || 8000 , function(){
 
 });
 //console.log('Process ' + process.pid + ' is listening to all incoming requests');
