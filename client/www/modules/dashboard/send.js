@@ -20,16 +20,6 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 	    $scope.tags = [];
             $scope.text = {};
             $scope.text.token = $window.localStorage.access_token;
-            
-            $scope.authParams = 
-		      { 
-		        "type" : "access_token",
-		        "username" : "Dave",
-		        "password" : "androidapps"
-		      }
-      
-     
-            
       $http.get('/contacts', {headers : {Authorization: 'Bearer ' + auth.getToken()}})
       .success(function(response){
         $scope.contacts = response;
@@ -53,6 +43,8 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
   {
     //console.log($scope.bundle);
     $scope.text.rec = [];
+
+    for(var k = 0; k < $scope.text.bundle.length; k++)
     {
       //console.log($scope.bundle[k]["value"]);
 
@@ -79,7 +71,6 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
       
     } 
 
-    console.log($scope.text.rec);      
 
     $scope.ceci = $scope.text.rec.length;
     console.log($scope.ceci);  
@@ -161,4 +152,3 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
      
 
 });
-
