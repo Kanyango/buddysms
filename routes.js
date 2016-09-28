@@ -42,7 +42,7 @@ module.exports = function(app , passport)
     app.delete('/contact/:id' , contact.remove);
 
     //messages routes
-
+    app.post('/kopokopo' , trans.kopokopo);
     app.post('/message' , auth , message.create);
     app.get('/message' , auth , message.read);
 
