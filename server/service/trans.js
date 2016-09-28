@@ -70,6 +70,24 @@ var trans = {
 	         	res.status(200).json(body);	
 	         	});
 
+	},
+	kopokopo : function(req , res ,next)
+	{
+		var transaction = new req.app.db.models.Trans();
+		
+		transaction.trans_ref = req.body.transaction_reference;
+		transaction.trans_time = req.body.transaction_timestamp;
+		transaction.trans_sender_phone = req.body.sender_phone;
+		transaction.amount = req.body.amount;
+		transaction.currency = req.body.currency;
+		
+		transaction.save(function(err , body){
+			if(err)
+			{
+				return next(err);
+			}
+		res.status(200).json(body);
+		});
 	}
 }
 module.exports = trans;
