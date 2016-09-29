@@ -102,7 +102,7 @@ var user = {
 			res.status(200).json(user);
 		});
 	},
-	user : function(req , res ,next)
+	sms : function(req , res ,next)
 	{
 		var id = req.payload._id;
 		
