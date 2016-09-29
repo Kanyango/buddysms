@@ -60,6 +60,23 @@ var message = {
 			
 			
 	},
+	template : function(req ,res , next)
+	{
+		var template = new req.app.db.models.Message();
+
+		template.message = req.body.message;
+		template.state = req.body.content;
+		template.user = req.payload._id;
+		template.to = req.body.bundle;
+
+		template.save(function(err , body){
+			if(err)
+			{
+				return next(err);
+			}
+		res.status(200).json(body);
+		});
+	},
 	read : function(req , res , next)
 	{
 		

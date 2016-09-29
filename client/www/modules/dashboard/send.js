@@ -58,7 +58,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 
           console.log($scope.text.bundle[k]["value"][l]["value"]);
 
-           $scope.rec.push($scope.text.bundle[k]["value"][l]["value"]);
+           $scope.text.rec.push($scope.text.bundle[k]["value"][l]["value"]);
 
         }
       }
@@ -146,9 +146,15 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 	        
       	}
       };
-      
-      	
-      	         
-     
 
+      $scope.saveTemplate = function()
+      {
+        $http.post('/savetext' , $scope.text,
+          {headers : {Authorization: 'Bearer ' + auth.getToken()}})
+        .then(function(response){
+          $scope.template = response.data;
+          console.log(response.data);
+          $scope.text = '';
+        })
+      }
 });

@@ -1,6 +1,11 @@
 <!-- Tabs -->
 <div class="container">
 	<h3>Contacts</h3>
+	<div class="row well">
+		<p class="text-left"><b>NOTE::</b>Ensure your contacts are prefixed with your <br>
+		country calling code i.e for a Kenyan Number 0712345689 should be 
+		edited to +2547123456789 <br> Numbers not saved in this format will not receive messages. </p>
+	</div>
 	<div class="container">
 	<div class="row">
 		<div class="col-md-12">
@@ -24,7 +29,7 @@
 			</form>
 			</thead>
 			<tbody>
-				<tr ng-repeat="user in users | filter: paginate">
+				<tr class="well" ng-repeat="user in users | filter: paginate">
 				    <td hidden>{{ user._id}}</td>
 					<td>{{ user.name }}</td>
 					<td>{{ user.value}}</td>

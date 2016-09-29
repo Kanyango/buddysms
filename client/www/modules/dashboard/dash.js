@@ -61,6 +61,11 @@ angular.module('buddySms.dash',
 		 templateUrl: '/modules/dashboard/smspurchase.html',
 		 controller : 'SmsPurchController'
 		})
+	.state('dash.senderId',
+		{
+		 url: '/senderId',
+		 templateUrl: '/modules/dashboard/senderId.html'
+		})
 	.state('dash.contact.groups',
 		{
 		 url: '/contact/groups',

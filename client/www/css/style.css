@@ -6,6 +6,15 @@ p{
 
 	height: 80px;
 }
+.well{
+
+	background-color: #fff !important;
+}
+
+#dashHome
+{
+	background-color: #f0f0f0;
+}
 
 .price{
 

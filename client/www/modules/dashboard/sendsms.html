@@ -18,17 +18,10 @@
 		<div class="col-md-8">
 			<oi-select 
 			oi-options="item.name for item in contacts track by item.value"
-<<<<<<< HEAD
-                    ng-model="text.bundle"
+            ng-model="text.bundle"
 		    multiple
 		    ng-blur="send()"
 		    placeholder="Select recipients">
-=======
-                        ng-model="text.bundle"
-		        multiple
-		        
-		        placeholder="Select recipients" ng-blur="send()">
->>>>>>> origin/master
 		  </oi-select>
 		</div>
 	</div>
@@ -40,9 +33,6 @@
 	</div>
 
 	<div class="form-group">
-		<div class="test">
-			<button class="btn btn-md btn-info" ng-click="testAuth()">Test Auth</button>
-		</div>
 		<label class="col-md-2  control-label">Message</label>
 		<div class="col-md-8">
 			<textarea class="form-control" rows="8" name="message" ng-blur="count()"
@@ -57,7 +47,7 @@
 		<span ng-show="text.message.length >= 140"> {{ y }} messages </span>
 		</div>
 		</div>
-	<div class="form-group">
+	<div class="form-group" hidden>
 		<label class="col-md-2 control-label">From</label>
 		<div class="col-md-8">
 		<input class="form-control" name="from" ng-model="text.from">
@@ -80,21 +70,21 @@
 			type="hidden">
 		</div>
 	</div>
-	<div class="form-group">
+	<div class="form-group" hidden>
 		<label class="col-md-2 control-label">reci</label>
 		<div class="col-md-4">
 			<input class="form-control" placeholder="no of chars"
 			 ng-model="text.rec">
 		</div>
 	</div>
-	<div class="form-group">
+	<div class="form-group" hidden>
 		<label class="col-md-2 control-label">reci</label>
 		<div class="col-md-4">
 			<input class="form-control" placeholder="no of chars"
 			 ng-model="text.token">
 		</div>
 	</div>
-	<div class="form-group">
+	<div class="form-group" hidden>
 		<label class="col-md-2 control-label">messages</label>
 		<div class="col-md-4">
 			<input class="form-control" placeholder="no of chars"
@@ -102,25 +92,37 @@
 			readonly="readonly">
 		</div>
 	</div>
+	<div class="form-group">
+		<p class="text-center">You are about to send {{ text.messages }} mesage(s)</p>
+	</div>
 	 <div class="form-group">
 	 <div class="col-md-4 col-md-offset-2">
-	 <div class="radio">
-		  <label><input type="checkbox"  name="optradio" ng-model="check">Send now</label>
+	  <div class="radio">
+		  <label><input type="radio" name="content" value="now"
+		   ng-model="text.content">Send Now</label>
 		</div>
 		<div class="radio">
-		  <label><input type="checkbox" name="optradio">
-		  send at a different time</label>
+		  <label><input type="radio" name="content" value="later" 
+		  ng-model="text.content">Send Later</label>
 		</div>
-		<div class="radio">
-		  <label><input type="checkbox" name="optradio">save as template
-		  </label>
-    </div>
+		<div class="radio disabled">
+		  <label><input type="radio" name="content" value="template"
+		   ng-model="text.content">Save as Template</label>
+		</div>   
     </div>
     </div>
     <hr>
-    <div class="form-group" ng-checked="master">
+    <div class="form-group" ng-show="text.content == 'now'">
 	<div class="col-md-4 col-md-offset-2">
-		<button  class="btn btn-lg btn-success" ng-click="sendText()">Send</button>
+		<button  class="btn btn-lg btn-start " ng-click="testAuth()">Send</button>
+	</div>
+	</div>
+	<div class="container" ng-show="text.content == 'later'">
+		<!-- place timer here -->
+	</div>
+	<div class="container" ng-show="text.content == 'template'">
+		<div class="col-md-4 col-md-offset-2">
+		<button  class="btn btn-md btn-start " ng-click="saveTemplate()">Save as Template</button>
 	</div>
 	</div>
 </form>

@@ -13,7 +13,7 @@ angular.module('buddySms.login',['buddySms.dash'])
 
 			})
 			.success(function(response){
-				$state.go('dash');
+				$state.go('dash.home');
 			});
 		};
 
