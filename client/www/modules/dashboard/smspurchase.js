@@ -26,7 +26,7 @@ angular.module('buddySms.smspurch', [])
 		$http.post('/confirmsms' , $scope.trans)
 		.then(function(response){
 			$scope.kop = response;
-			$scope.smspurchresp = response.data.amount;
+			$scope.smspurchresp = response.data;
 			console.log($scope.smspurchresp);
 			console.log($scope.kop);
 			if(typeof $scope.smspurchresp === 'undefined' || $scope.smspurchresp === null )
