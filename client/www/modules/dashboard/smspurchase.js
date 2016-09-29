@@ -26,12 +26,13 @@ angular.module('buddySms.smspurch', [])
 		$http.post('/confirmsms' , $scope.trans)
 		.then(function(response){
 			$scope.kop = response;
-			$scope.smspurchresp = response.data.status;
+			$scope.smspurchresp = response.data.amount;
 			console.log($scope.smspurchresp);
 			console.log($scope.kop);
-			if($scope.smspurchresp > 01)
+			if(typeof $scope.smspurchresp === 'undefined' || $scope.smspurchresp === null )
 			{
-				$scope.oops = "Error";
+				$scope.oops = "Error Transaction does not exist";
+				
 			}
 			else
 			{
