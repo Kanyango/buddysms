@@ -101,7 +101,20 @@ var user = {
 			}
 			res.status(200).json(user);
 		});
+	},
+	user : function(req , res ,next)
+	{
+		var id = req.payload._id;
+		
+		req.app.db.models.User.update({_id : mongoose.Types.ObjectId(id)},
+					      {$inc: {smss: (req.body.sms)}},
+					     function(err , info){
+			if(err)
+			{
+				return next(err);
+			}
+			res.status(200).json(info);
+		 	});
 	}
-
 };
 module.exports = user;
