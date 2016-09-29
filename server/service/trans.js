@@ -58,10 +58,6 @@ var trans = {
 		req.app.db.models.Trans.find({trans_ref: req.body.transaction_reference ,
 			trans_sender_phone: req.body.sender_phone},
 			function(err , info){
-				if (!info) {
-					res.status(400).json({message :  'Transaction does not exist'});
-				}
-				res.status(200).json(info);
 			    if(err)
 			{
 				return next(err);
