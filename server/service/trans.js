@@ -36,7 +36,7 @@ var trans = {
 			});
 	},
 	purchsms : function(req , res ,next)
-	
+	{
 		req.app.db.models.Trans.find({trans_ref: req.body.transaction_reference ,
 			trans_sender_phone: req.body.sender_phone},
 			function(err , info){
