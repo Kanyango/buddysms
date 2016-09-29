@@ -82,7 +82,6 @@ var trans = {
 			}
 		res.status(200).json(body);
 		});
->>>>>>> origin/master
 	}
 }
 module.exports = trans;
