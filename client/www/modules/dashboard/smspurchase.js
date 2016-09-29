@@ -23,12 +23,13 @@ angular.module('buddySms.smspurch', [])
 
 	$scope.confirm = function()
 	{
-		$http.post('/confirmsms' ,$scope.trans , 
+		$http.post('/confirmsms' , $scope.trans ,
 			{header: {Authorization: 'Bearer '+ auth.getToken()}})
 		.then(function(response){
-
+			$scope.kop = response;
 			$scope.smspurchresp = response.data.status;
-
+			console.log($scope.smspurchresp);
+			console.log($scope.kop);
 			if($scope.smspurchresp > 01)
 			{
 				$scope.oops = "Error";

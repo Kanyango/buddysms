@@ -7,6 +7,7 @@ angular.module('buddySms.login',['buddySms.dash'])
 		
 		$scope.login = function()
 		{
+			console.log($scope.user);
 			auth.login($scope.user)
 			.error(function(data , error , status){
 				console.log($scope.user);

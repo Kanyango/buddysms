@@ -9,6 +9,7 @@ var http     = require('http');
 var path     = require('path');
 var jwt      = require('jsonwebtoken');
 
+
 var app = express();
 
 app.config = config;
@@ -22,7 +23,7 @@ app.db.once('open', function(){
 
 require('./models')(app, mongoose);
 
-app.set('port' , config.port);
+//var port = process.env.PORT || 7000;
 
 app.use(function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
@@ -49,10 +50,12 @@ require('./passport')(app , passport);
 
 require('./routes')(app , passport);
 
-app.server.listen(process.env.PORT || 8080, function(){
+
+app.server.listen(process.env.PORT || 7000 , function(){
 
 });
 console.log('Process ' + process.pid + ' is listening to all incoming requests');
+	
 
 
 
