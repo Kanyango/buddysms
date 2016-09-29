@@ -12,7 +12,8 @@ var contact   = require('./server/service/contact');
 
 module.exports = function(app , passport)
 {
-    
+    //update sms
+    app.post('/updatesms' , auth , user.sms);
     //auth sms
     
     app.post('/authenticateText' , contact.sms);
