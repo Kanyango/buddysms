@@ -107,7 +107,7 @@ var user = {
 		var id = req.payload._id;
 		
 		req.app.db.models.User.update({_id : mongoose.Types.ObjectId(id)},
-					      {$inc: {smss: (req.body.sms)}},
+					      {$inc: {smss: (req.body.items)}},
 					     function(err , info){
 			if(err)
 			{
