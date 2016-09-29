@@ -24,7 +24,7 @@ module.exports = function(app , passport)
     //recover pass
     app.get('/recover' , auth , user.recover);
     //buy sms
-    app.post('/confirmsms' , auth , trans.purchsms);
+    app.post('/confirmsms' , trans.purchsms);
 
 
     app.post('/message' , auth ,   message.create);
