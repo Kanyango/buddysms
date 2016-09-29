@@ -1,11 +1,4 @@
 <br>
-<div class="container" ng-show="oops">
-<div class="row">
-<div class="alert alert-danger">
-    <strong>Danger!</strong> Error Transaction does not exist.
-  </div>
-	</div>
-	</div>
 <div class="container">
 	<div class="row">
 		<div class="col-md-8 col-md-offset-2 well">
@@ -60,6 +53,10 @@
 			<p>6.Enter your M-pesa PIN</p>
 			<p>7.Confirm Payment</p>
 			<hr>
+			<div class="alert alert-danger">
+				<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+			    <strong>Error!!</strong> Error Transaction does not exist.
+			 </div>
 			<form class="form-horizontal">
 				<div class="form-group">
 				<label class="control-label col-md-4">Enter Your phone number</label>
