@@ -36,7 +36,7 @@ angular.module('buddySms.smspurch', [])
 			}
 			else
 			{
-				$scope.amount = $scope.smspurchresp.amount;
+				$scope.amount = response.data.["0"].amount;
 				console.log($scope.amount);
 			}
 
