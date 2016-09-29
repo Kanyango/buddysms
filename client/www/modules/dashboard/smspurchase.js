@@ -36,13 +36,8 @@ angular.module('buddySms.smspurch', [])
 			}
 			else
 			{
-				//route to home page and update no of sms in db
-				//alert user success
-
-				$state.go('dash.home');
-
-				//update db
-				//$http.post('/addsms' $scope.total)
+				$scope.amount = $scope.smspurchresp.amount;
+				console.log($scope.amount);
 			}
 
 		});
