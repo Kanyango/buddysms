@@ -40,6 +40,10 @@ angular.module('buddySms.smspurch', [])
 				console.log($scope.amount);
 				$scope.sms = $scope.amount * 100/104
 				console.log($scope.sms);
+				$http.post('/updatesms' ,$scope.sms , {headers: {Authorization: 'Bearer ' + auth.getToken()}}).
+				then(function(response){
+				$state.go('dash.home');
+				})
 			}
 
 		});
