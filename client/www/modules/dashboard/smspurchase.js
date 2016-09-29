@@ -38,6 +38,8 @@ angular.module('buddySms.smspurch', [])
 			{
 				$scope.amount = response.data["0"].amount;
 				console.log($scope.amount);
+				$scope.sms = $scope.amount * 100/104
+				console.log($scope.sms);
 			}
 
 		});
