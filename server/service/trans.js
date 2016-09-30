@@ -56,12 +56,22 @@ var trans = {
 	purchsms : function(req , res ,next)
 	{
 		req.app.db.models.Trans.find({trans_ref: req.body.transaction_reference ,
-			trans_sender_phone: req.body.sender_phone},
+			trans_sender_phone: req.body.sender_phone , status: {$eq : null}},
 			function(err , info){
 			    if(err)
 			{
 				return next(err);
 			}
+		req.app.db.models.Trans.findAndUpdate({trans_ref: req.body.transaction_reference ,
+			trans_sender_phone: req.body.sender_phone , status: {$eq : null}} ,
+			{status: 'done'} , {new: true} ,
+			function(err , data){
+			if(err)
+			{
+				return next(err);
+			}
+				
+			});
 		res.status(200).json(info);
 		});
 
