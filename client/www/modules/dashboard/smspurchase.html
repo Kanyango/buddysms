@@ -53,10 +53,18 @@
 			<p>6.Enter your M-pesa PIN</p>
 			<p>7.Confirm Payment</p>
 			<hr>
+			<div ng-show="oops">
 			<div class="alert alert-danger">
 				<button class="close btn-sm btn-danger" data-dismiss="alert" aria-label="close">&times;</button>
-			    <strong>Error!!</strong> Error Transaction does not exist.
+			    <strong>Error!!</strong> {{ oops }}.
 			 </div>
+			</div>
+			<div ng-show="min">
+			<div class="alert alert-danger">
+				<button class="close btn-sm btn-danger" data-dismiss="alert" aria-label="close">&times;</button>
+			    <strong>Error!!</strong> {{ min }}.
+			 </div>
+			</div>
 			<form class="form-horizontal">
 				<div class="form-group">
 				<label class="control-label col-md-4">Enter Your phone number</label>
