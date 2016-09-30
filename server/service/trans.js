@@ -62,7 +62,7 @@ var trans = {
 			{
 				return next(err);
 			}
-		req.app.db.models.Trans.findAndUpdate({trans_ref: req.body.transaction_reference ,
+		req.app.db.models.Trans.findOneAndUpdate({trans_ref: req.body.transaction_reference ,
 			trans_sender_phone: req.body.sender_phone , status: {$eq : null}} ,
 			{status: 'done'} , {new: true} ,
 			function(err , data){
