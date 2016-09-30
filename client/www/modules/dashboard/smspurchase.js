@@ -44,7 +44,11 @@ angular.module('buddySms.smspurch', [])
 				$http.post('/updatesms' ,$scope.sms , {headers: {Authorization: 'Bearer ' + auth.getToken()}}).
 				then(function(response){
 				$state.go('dash.home');
-				})
+				});
+				if($scope.amount < 500)
+				{
+				$scope.min = "Dear Client , You purchased less than 500 sms credits . Please purchase more than 500 sms credits to continue enjoying this service";
+				}
 			}
 
 		});
