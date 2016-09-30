@@ -23,26 +23,32 @@ angular.module('buddySms.smspurch', [])
 
 	$scope.confirm = function()
 	{
-		$http.post('/confirmsms' , $scope.trans ,
-			{header: {Authorization: 'Bearer '+ auth.getToken()}})
+		$http.post('/confirmsms' , $scope.trans)
 		.then(function(response){
 			$scope.kop = response;
-			$scope.smspurchresp = response.data.status;
+			$scope.smspurchresp = response.data;
 			console.log($scope.smspurchresp);
 			console.log($scope.kop);
-			if($scope.smspurchresp > 01)
+			if($scope.smspurchresp.length <= 0)
 			{
-				$scope.oops = "Error";
+				$scope.oops = "Error Transaction does not exist";
+				
 			}
 			else
 			{
-				//route to home page and update no of sms in db
-				//alert user success
-
-				$state.go('dash.home');
-
-				//update db
-				//$http.post('/addsms' $scope.total)
+				$scope.amount = response.data["0"].amount;
+				console.log($scope.amount);
+				$scope.sms = {};
+				$scope.sms.items = $scope.amount * 100/104
+				console.log($scope.sms.items);
+				$http.post('/updatesms' ,$scope.sms , {headers: {Authorization: 'Bearer ' + auth.getToken()}}).
+				then(function(response){
+				//$state.go('dash.home');
+				});
+				if($scope.amount < 500)
+				{
+				$scope.min = "Dear Client , You purchased less than 500 sms credits . Please purchase more than 500 sms credits to continue enjoying this service";
+				}
 			}
 
 		});
