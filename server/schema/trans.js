@@ -8,7 +8,8 @@ module.exports = function(app , mongoose){
 		trans_time  : {type : Date},
 		trans_sender_phone   : {type : String},
 		amount        : {type : String},
-		currency      : {type: String}
+		currency      : {type: String},
+		status         : {type: String}
 
 		
 	});
