@@ -6,33 +6,7 @@ var message = {
 
 	create : function(req , res , next)
 	{
-		var fieldsToSet = {
-
-			message : req.body.message,
-			to      : req.body.bundle,
-			from    : req.body.from,
-			user    : req.payload._id
-		};
-		var tokeny = req.body.token;
-		req.app.db.models.Message.create(fieldsToSet , 
-			function(err ,  docs){
-
-				if(err)
-				{
-					return next(err);
-				}
-	   /*req.app.db.models.User.update({_id: mongoose.Types.ObjectId(req.payload._id)},
-			{$inc: {smss: -(req.body.to)}},
-			function(err , info){
-
-				if(err)
-			{
-				return next(err);
-			}
-
-			}); */
-			
-			request({
+		request({
 	  		
 	  		url: 'https://sms.solutions4mobiles.com/apis/sms/mt/v2/send',
 	  		method: 'POST',
@@ -50,12 +24,38 @@ var message = {
 	         		{
 	         			return next(err);
 	         		}
-	         	res.status(200).json(body);	
-	         	});
+	         	
+			
+		var fieldsToSet = {
+
+			message : req.body.message,
+			to      : req.body.bundle,
+			from    : req.body.from,
+			user    : req.payload._id
+		};
+		var tokeny = req.body.token;
+		req.app.db.models.Message.create(fieldsToSet , 
+			function(err ,  docs){
+
+				if(err)
+				{
+					return next(err);
+				}
+	   req.app.db.models.User.update({_id: mongoose.Types.ObjectId(req.payload._id)},
+			{$inc: {smss: -(req.body.rec)}},
+			function(err , info){
+
+				if(err)
+			{
+				return next(err);
+			}
+
+			}); 
 			
 			//	res.status(200).json(docs);
 			});
-			
+			res.status(200).json(body);	
+	         	});
 			
 			
 			
