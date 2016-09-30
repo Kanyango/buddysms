@@ -58,18 +58,6 @@ var trans = {
 		req.app.db.models.Trans.find({trans_ref: req.body.transaction_reference ,
 			trans_sender_phone: req.body.sender_phone , status: {$eq : null}},
 			function(err , info){
-<<<<<<< HEAD
-				if (err) {
-					return next(err);
-				}
-		req.app.db.models.Trans.findAndUpdate({trans_ref: req.body.transaction_reference ,
-			trans_sender_phone: req.body.sender_phone , status: {$eq : null}} ,
-			{status: 'done'} , {new: true} ,
-			function(err , data){
-				
-			})
-				res.status(200).json(info);
-=======
 			    if(err)
 			{
 				return next(err);
@@ -82,8 +70,6 @@ var trans = {
 			{
 				return next(err);
 			}
-				
->>>>>>> origin/master
 			});
 		res.status(200).json(info);
 		});
