@@ -41,7 +41,7 @@ var message = {
 					return next(err);
 				}
 	   req.app.db.models.User.update({_id: mongoose.Types.ObjectId(req.payload._id)},
-			{$inc: {smss: -(req.body.rec)}},
+			{$inc: {smss: -(req.body.ceci)}},
 			function(err , info){
 
 				if(err)
