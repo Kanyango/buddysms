@@ -43,7 +43,7 @@ angular.module('buddySms.smspurch', [])
 				console.log($scope.sms.items);
 				$http.post('/updatesms' ,$scope.sms , {headers: {Authorization: 'Bearer ' + auth.getToken()}}).
 				then(function(response){
-				$state.go('dash.home');
+				//$state.go('dash.home');
 				});
 				if($scope.amount < 500)
 				{
