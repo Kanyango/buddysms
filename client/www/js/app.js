@@ -26,7 +26,7 @@ angular.module('buddySms',
 		 controller: 'SignUpController',
 		  onEnter     : ['$state', 'auth' , function($state , auth){
 		      if(auth.isLoggedIn()){
-			  $state.go('dash');
+			  $state.go('dash.home');
 		      }
 		    }]
 		})
@@ -37,7 +37,7 @@ angular.module('buddySms',
 		 controller: 'LoginController', 
 		  onEnter     : ['$state', 'auth' , function($state , auth){
 				      if(auth.isLoggedIn()){
-					  $state.go('dash');
+					  $state.go('dash.home');
 				      }
 				 }]
 		})
