@@ -37,6 +37,7 @@ p{
 #buddyHeader
 {
 	letter-spacing: 6px;
+	color: #248f6b;
 }
 
 #user {
@@ -50,7 +51,12 @@ p{
 }
 #jumbo {
 
-	background-color: #33CC99;
+	background-image: url("/assets/jumbo.png");
+	background-position: center;
+	background-color: #f0f0f0;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	min-height: 400px;
 	color:#fff;
 	margin-bottom: 0px;
 }
@@ -89,6 +95,7 @@ p{
 #end{
 
 	letter-spacing: 5px;
+	color: #248f6b;
 
 }
 #possy

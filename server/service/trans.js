@@ -35,7 +35,7 @@ var trans = {
 				res.status(200).json(docs);
 			});
 	},
-	kopokopo : function(req , res ,next)
+	/*kopokopo : function(req , res ,next)
 	{
 		var transaction = new req.app.db.models.Trans();
 		
@@ -52,15 +52,21 @@ var trans = {
 			}
 		res.status(200).json(body);
 		});
-	},
+	},*/
 	purchsms : function(req , res ,next)
 	{
 		req.app.db.models.Trans.find({trans_ref: req.body.transaction_reference ,
-			trans_sender_phone: req.body.sender_phone},
+			trans_sender_phone: req.body.sender_phone , status: {$eq : null}},
 			function(err , info){
 				if (err) {
 					return next(err);
 				}
+		req.app.db.models.Trans.findAndUpdate({trans_ref: req.body.transaction_reference ,
+			trans_sender_phone: req.body.sender_phone , status: {$eq : null}} ,
+			{status: 'done'} , {new: true} ,
+			function(err , data){
+				
+			})
 				res.status(200).json(info);
 			});
 
@@ -82,7 +88,6 @@ var trans = {
 			}
 		res.status(200).json(body);
 		});
->>>>>>> origin/master
 	}
 }
 module.exports = trans;
