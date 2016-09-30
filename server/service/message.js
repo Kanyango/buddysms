@@ -6,6 +6,15 @@ var message = {
 
 	create : function(req , res , next)
 	{
+			
+		var fieldsToSet = {
+
+			message : req.body.message,
+			to      : req.body.bundle,
+			from    : req.body.from,
+			user    : req.payload._id
+		};
+		var tokeny = req.body.token;
 		request({
 	  		
 	  		url: 'https://sms.solutions4mobiles.com/apis/sms/mt/v2/send',
@@ -24,16 +33,6 @@ var message = {
 	         		{
 	         			return next(err);
 	         		}
-	         	
-			
-		var fieldsToSet = {
-
-			message : req.body.message,
-			to      : req.body.bundle,
-			from    : req.body.from,
-			user    : req.payload._id
-		};
-		var tokeny = req.body.token;
 		req.app.db.models.Message.create(fieldsToSet , 
 			function(err ,  docs){
 
