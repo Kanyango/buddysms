@@ -51,13 +51,12 @@ p{
 }
 #jumbo {
 
-	background-image: url("/assets/jumbo.png");
+	background-image: url("/assets/repeat.png");
 	background-position: center;
 	background-color: #f0f0f0;
 	background-attachment: fixed;
-	background-repeat: no-repeat;
+	background-repeat: repeat;
 	min-height: 450px;
-	color:#fff;
 	margin-bottom: 0px;
 }
 .btn-start{
