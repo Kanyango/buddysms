@@ -9,13 +9,7 @@ module.exports = function(app , mongoose){
 		trans_sender_phone   : {type : String},
 		amount        : {type : String},
 		currency      : {type: String},
-<<<<<<< HEAD
-		status        : {type: String}
-=======
-		status         : {type: String}
->>>>>>> origin/master
-
-		
+		status         : {type: String}		
 	});
 	app.db.model('Trans' , transSchema);
 };
