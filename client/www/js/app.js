@@ -23,13 +23,23 @@ angular.module('buddySms',
 		{
 		 url: '/signup',
 		 templateUrl: '/modules/signup.html',
-		 controller: 'SignUpController' 
+		 controller: 'SignUpController',
+		  onEnter     : ['$state', 'auth' , function($state , auth){
+		      if(auth.isLoggedIn()){
+			  $state.go('dash.home');
+		      }
+		    }]
 		})
 	 .state('login',
 		{
 		 url: '/login',
 		 templateUrl: '/modules/login.html',
-		 controller: 'LoginController' 
+		 controller: 'LoginController', 
+		  onEnter     : ['$state', 'auth' , function($state , auth){
+				      if(auth.isLoggedIn()){
+					  $state.go('dash.home');
+				      }
+				 }]
 		})
 	 .state('recovery',
 		{
