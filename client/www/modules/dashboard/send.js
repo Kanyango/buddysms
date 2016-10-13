@@ -42,7 +42,7 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
   $scope.send = function()
   {
     //console.log($scope.bundle);
-    $scope.text.rec = [];
+    $scope.text.reci = [];
 
     for(var k = 0; k < $scope.text.bundle.length; k++)
     {
@@ -65,14 +65,14 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
       else
       {
 
-        $scope.text.rec.push($scope.text.bundle[k]["value"]); 
+        $scope.text.reci.push($scope.text.bundle[k]["value"]); 
 
       }
       
     } 
 
 
-    $scope.text.ceci = $scope.text.rec.length;
+    $scope.text.ceci = $scope.text.reci.length;
     console.log($scope.text.ceci);  
     $scope.reci = $scope.ceci; 
   }

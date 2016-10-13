@@ -12,6 +12,10 @@ var contact   = require('./server/service/contact');
 
 module.exports = function(app , passport)
 {
+    //sender Id request
+    //app.post('/branded' , auth , )
+    //upload file
+    app.post('/upload' , auth  , contact.upload);
     //update sms
     app.post('/updatesms' , auth , user.sms);
     //auth sms

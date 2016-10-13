@@ -4,7 +4,8 @@ angular.module('buddySms.dash',
 	'buddySms.contact',
 	'buddySms.groups',
 	'buddySms.outbox','buddySms.home',
-	'buddySms.smspurch'])
+	'buddySms.smspurch',
+	'buddySms.sender'])
 
 .config(function($stateProvider){
 	$stateProvider
@@ -64,7 +65,8 @@ angular.module('buddySms.dash',
 	.state('dash.senderId',
 		{
 		 url: '/senderId',
-		 templateUrl: '/modules/dashboard/senderId.html'
+		 templateUrl: '/modules/dashboard/senderId.html',
+		 controller: 'SenderIdController'
 		})
 	.state('dash.contact.groups',
 		{

@@ -1,8 +1,57 @@
-angular.module('buddySms.contact',['ui.bootstrap','oi.select','ngTagsInput'])
+angular.module('buddySms.contact',['ui.bootstrap','oi.select','ngTagsInput','ngFileUpload'])
 
+.directive('fileModel', ['$parse', function ($parse) {
+        return {
+           restrict: 'A',
+           link: function(scope, element, attrs) {
+              var model = $parse(attrs.fileModel);
+              var modelSetter = model.assign;
+ 
+              element.bind('change', function(){
+                 scope.$apply(function(){
+                    modelSetter(scope, element[0].files[0]);
+                 });
+              });
+           }
+        };
+     }])
+     .service('fileUpload', ['$http','auth', function ($http , auth) {
+        this.uploadFileToUrl = function(file, uploadUrl){
+           var fd = new FormData();
+           fd.append('file', file);
+ 
+           $http.post(uploadUrl, fd, {
+              transformRequest: angular.identity,
+              headers: {'Content-Type': undefined , 
+                        Authorization: 'Bearer ' + auth.getToken()
+                      }
+           })
+           .then(function(response){
+            var pload = response.data;
+            console.log(pload);
+            for(var l = 0; l < pload[0].length; l++)
+              { 
+                  console.log(pload[0][l]) 
+              }
+              this.k = pload[0];
+              console.log(this.k);
+            /*$http.post('/exel', this.k , 
+              {headers:{Authorization: 'Bearer ' + auth.getToken()}})
+            .then(function(res){
+              var ploady = res.data;
+              console.log(ploady);
+            });*/
+           });
+        }
+     }])
 .controller('ContactController' ,
-    function($scope , $http , $filter , auth , $uibModal , $window ){
+    function($scope , $http , $filter , auth , $uibModal , $window ,fileUpload){
 
+      $scope.uploadFile = function(){
+           var file = $scope.myFile;
+           var uploadUrl = "/upload";
+           fileUpload.uploadFileToUrl(file, uploadUrl);
+        };
     $scope.users = [];
     $scope.group = [];
   

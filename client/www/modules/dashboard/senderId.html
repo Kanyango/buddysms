@@ -1,10 +1,10 @@
 <br>
 <div class="container">
-	<div class="row">
+	<div class="row" style="padding: 20px;">
 		<div class="col-md-8 col-md-offset-2">
 		<div class="well">
-			<div class="text-center">
-				<p>Please ensure that the sender id you provide below <br> has less 
+			<div class="text-left">
+			<p>Please ensure that the sender id you provide below <br> has less 
 				than 11 characters , i.e FIKISHA has 7 characters. </p>
 			</div>
 		</div>
@@ -15,6 +15,10 @@
 					<input type="text" class="form-control" name="branded" 
 					ng-model="brand.branded" placeholder="Enter desired Sender Id">
 					</div>
+				</div>
+				<div class="col-md-4 col-md-offset-2">
+					<button class="btn btn-start btn-md" ng-click="senderId()">
+					Send Request</button>
 				</div>
 			</form>
 		</div>

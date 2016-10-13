@@ -1,6 +1,10 @@
 'use strict';
 var mongoose = require('mongoose');
 var request  = require('request');
+var mongoXlsx = require('mongo-xlsx');
+var multer   = require('multer');
+var formidable = require('formidable');
+var fs = require('fs');
 
 var contact = {
 
@@ -159,6 +163,62 @@ var contact = {
 	  		});
 
 	  },
+	  upload : function(req , res , next)
+	  {
+	  	var storage = multer.diskStorage({
+	  		destination: function(request , file , callback)
+	  		{
+	  			callback(null , './server/uploads');
+	  		},
+	  		filename: function (request, file, callback) {
+		    //console.log(file);
+		    callback(null, file.originalname)
+		  }
+	  	});
+	  	var upload = multer({storage: storage}).single('file');
+
+	  	upload(req , res , function(err){
+	  		/*if(err)
+	  		{
+	  			return next(err);
+	  		}*/
+	  		//console.log(req.file);
+	  		//res.status(200).json(req.file);
+	  		var model = null;
+	  		//var model = mongoXlsx.buildDynamicModel(data);
+
+	  	mongoXlsx.xlsx2MongoData(req.file.path, model, function(err, mongoData) {	
+        if(err)
+	  			{
+	  				return next(err);
+	  			}
+	  			//console.log('Mongo data:', mongoData);
+	  			//res.status(200).json(mongoData);
+
+	  			var item;
+	  			var xcelUsers = [];
+	  			for(var i = 0 ; i < mongoData[0].length ; i++)
+	  			{
+	  				mongoData[0][i]["value"] = mongoData[0][i]["value"]+' ';
+	  				
+	  				
+	  				mongoData[0][i].user = req.payload._id;
+	  				xcelUsers.push(mongoData[0][i]);
+	  				
+	  			}
+	  			console.log(xcelUsers);
+	  			
+	  			req.app.db.models.Contact.insertMany(xcelUsers ,
+	  				function(err , docs){
+	  					if(err)
+	  					{
+	  						return next(err)
+	  					}
+	  					res.status(200).json(docs);
+	  				});
+	     });
+	  });
+	},
 	  sms : function(req , res , next)
 	  {
 	  	
