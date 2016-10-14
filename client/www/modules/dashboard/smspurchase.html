@@ -24,12 +24,13 @@
 					</div>
 					<div ng-show="total < 500">
 						<p>Minimum no of sms purchase is 500 </p>
+						<p>One sms costs 1.50 Ksh V.A.T inclusive</p>
 					</div>
 					<div class="form-group">
 						<label class="col-md-4 control-label">Total cost plus V.A.T</label>
 						<div class="col-md-4">
 							<input class="form-control" placeholder="no of chars"
-							my-sms-value="{{total * 4/100 + total}}" ng-model="text.messages" 
+							my-sms-value="{{total * 1.50 }}" ng-model="text.messages" 
 							readonly="readonly">
 						</div>
 					</div>

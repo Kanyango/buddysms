@@ -40,7 +40,11 @@ angular.module('buddySms.smspurch', [])
 				$scope.amount = response.data["0"].amount;
 				console.log($scope.amount);
 				$scope.sms = {};
-				$scope.sms.items = $scope.amount / 1.50
+<<<<<<< HEAD
+				$scope.sms.items = $scope.amount / 1.5
+=======
+				$scope.sms.items = $scope.amount /1.5
+>>>>>>> origin/master
 				console.log($scope.sms.items);
 				$http.post('/updatesms' ,$scope.sms , {headers: {Authorization: 'Bearer ' + auth.getToken()}}).
 				then(function(response){
