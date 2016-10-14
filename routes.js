@@ -9,11 +9,12 @@ var user    = require('./server/service/user');
 var message    = require('./server/service/message');
 var trans   = require('./server/service/trans');
 var contact   = require('./server/service/contact');
+var branded   = require('./server/service/sender');
 
 module.exports = function(app , passport)
 {
     //sender Id request
-    //app.post('/branded' , auth , )
+    app.post('/branded' , auth , branded.idReq);
     //upload file
     app.post('/upload' , auth  , contact.upload);
     //update sms

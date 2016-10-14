@@ -7,4 +7,5 @@ module.exports = function(app , mongoose)
 	require('./server/schema/user')(app , mongoose);
 	require('./server/schema/trans')(app , mongoose);
 	require('./server/schema/contacts')(app , mongoose);
+	require('./server/schema/senderId')(app , mongoose);
 }

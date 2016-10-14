@@ -25,6 +25,12 @@ angular.module('buddySms.dash',
 		{
 		 url: '/dash/sendsms',
 		 templateUrl: '/modules/dashboard/sendsms.html',
+		 controller: 'ConfirmId' 
+		})
+	.state('dash.senderconfirm',
+		{
+		 url: '/dash/confirmId',
+		 templateUrl: '/modules/dashboard/confirm.html',
 		 controller: 'SendSMS' 
 		})
 	.state('dash.trans',
