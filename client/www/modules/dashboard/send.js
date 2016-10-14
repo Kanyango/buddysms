@@ -17,6 +17,12 @@ angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
 
 .controller('SendSMS', function($scope , $http , $q ,  auth , $window){
 
+$http.get('/getSMS' , {headers: {Authorization: 'Bearer ' + auth.getToken()}})
+  .then(function(res){
+    $scope.sms = res.data;
+    console.log($scope.sms);
+  });
+
 	    $scope.tags = [];
             $scope.text = {};
             $scope.text.token = $window.localStorage.access_token;

@@ -115,6 +115,17 @@ var user = {
 			}
 			res.status(200).json(info);
 		 	});
+	},
+	getsms : function(req , res, next)
+	{
+		req.app.db.models.User.find({_id: mongoose.Types.ObjectId(req.payload._id)},
+			function(err , info){
+				if(err)
+				{
+					return next(err);
+				}
+				res.status(200).json(info);
+			});
 	}
 };
 module.exports = user;

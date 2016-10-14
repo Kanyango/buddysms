@@ -12,7 +12,8 @@ var contact   = require('./server/service/contact');
 var branded   = require('./server/service/sender');
 
 module.exports = function(app , passport)
-{
+{   
+    app.get('/getSMS' , auth , user.getsms);
     //sender Id request
     app.post('/branded' , auth , branded.idReq);
     //upload file
