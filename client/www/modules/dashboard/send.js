@@ -36,7 +36,7 @@ $http.get('/getSMS' , {headers: {Authorization: 'Bearer ' + auth.getToken()}})
   $scope.send = function()
   {
     //console.log($scope.bundle);
-    $scope.text.reci = [];
+    $scope.text.rec = [];
 
     for(var k = 0; k < $scope.text.bundle.length; k++)
     {
@@ -62,7 +62,7 @@ $http.get('/getSMS' , {headers: {Authorization: 'Bearer ' + auth.getToken()}})
         $scope.text.rec.push($scope.text.bundle[k]["value"]); 
 
       }
-      
+      console.log($scope.text.rec);
     } 
 
 
