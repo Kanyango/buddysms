@@ -1,4 +1,4 @@
-angular.module('buddySms.send' , ['ngTagsInput','oi-select'])
+angular.module('buddySms.send' , ['ngTagsInput','oi.select'])
 
 .directive('myModelValue', function () {
         return {
