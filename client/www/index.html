@@ -50,7 +50,8 @@
 
 
 	</head>
-	<body ng-app="buddySms">
+	<body ng-app="buddySms" data-spy="scroll" data-target=".navbar" 
+	data-offset="50">
 
 
 	<div ui-view></div>
@@ -78,47 +79,6 @@
 		<script src="modules/dashboard/smspurchase.js"></script>
 		<script src="js/jquery.min.js"></script>
 		<script src="js/jquery.tokeninput.js"></script>
-		<script>
-			function count(){
-
-	       	  	$('#message').keyup(function(){
-
-	       		var max = 140;
-				var len = $(this).val().length;
-
-				if(len >= max)
-				{
-					$('#charNum').html('You have reached the limit');
-				}
-				else{
-					var char = max - len;
-					$('#charNum').html(char + 'chars left');
-				}
-
-	       	});
-
-	       }
-		</script>
-		<script type="text/javascript">
-         $(document).ready(function () {
-   			 $("#message").tokenInput("server/service/contact.js");
-       	 });
-       </script>
-	    <script>
-	    	function calc()
-	    	{
-	    		var x = $('#message').val.length;
-	    		var max = 140;
-	    		if(x < max)
-	    		{
-	    			//1 * recipients and update a hidden input  
-	    		}
-	    		else
-	    		{
-	    			//x divide by max round off to whole number  * recipients
-	    		}
-	    	}
-	    </script>	
 	    <script src="js/bootstrap.min.js"></script>
 		<!-- Bootstrap JavaScript 
 		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script> -->

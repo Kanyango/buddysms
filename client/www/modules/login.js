@@ -9,9 +9,8 @@ angular.module('buddySms.login',['buddySms.dash'])
 		{
 			console.log($scope.user);
 			auth.login($scope.user)
-			.error(function(data , error , status){
-				console.log($scope.user);
-
+			.error(function(data , status , headers){
+				$scope.min = data.message;
 			})
 			.success(function(response){
 				$state.go('dash.home');

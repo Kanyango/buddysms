@@ -9,7 +9,7 @@ angular.module('buddySms',
 	'buddySms.signUp',
     'buddySms.login',
     'buddySms.recovery',
-        'buddySms.login'
+    'buddySms.login'
 	])
 .config(function($stateProvider , $urlRouterProvider , $httpProvider){
 
@@ -51,6 +51,11 @@ angular.module('buddySms',
 		{
 		 url: '/about',
 		 templateUrl: '/modules/about.html' 
+		})
+	.state('smshome',
+		{
+		 url: '/buddysms',
+		 templateUrl: '/modules/buddySms.html' 
 		});
 	$urlRouterProvider.otherwise('/home');
 	

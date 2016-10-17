@@ -1,4 +1,4 @@
-angular.module('buddySms.send' , ['ngTagsInput','typeahead'])
+angular.module('buddySms.send' , ['ngTagsInput'])
 
 .directive('myModelValue', function () {
         return {
@@ -30,18 +30,6 @@ $http.get('/getSMS' , {headers: {Authorization: 'Bearer ' + auth.getToken()}})
       .success(function(response){
         $scope.contacts = response;
       });
-
-	$scope.loadUsers = function($query){
-	 return $http.get('/contact', 
-	 	{headers : {Authorization: 'Bearer ' + auth.getToken()}} ,
-	 	{ cache: true}).then(function(response) {
-        var countries = response.data;
-        return countries.filter(function(country) {
-          return country.name.toLowerCase().indexOf($query.toLowerCase()) != -1;
-
-      });
-    });
-  };
 
   
 

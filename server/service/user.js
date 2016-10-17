@@ -11,12 +11,13 @@ var user = {
 			res.status(400).json({message : 'Please fill out the fields'});
 		}
 
-		req.app.db.models.User.findOne({email: req.body.username},
+		req.app.db.models.User.findOne({email: req.body.username ,
+			phone: req.body.phone},
 			function(err , user){
 				if(user)
 				{
 
-					res.status(500).json('email already exists');
+					res.status(500).json({message : 'email already exists'});
 
 				}
 			});

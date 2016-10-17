@@ -1,6 +1,12 @@
+body
+{
+	font-family: "Trebuchet MS", Helvetica, sans-serif;
 
+}
 p{
-	font-size: 16px;
+	font-size: 17px;
+	word-spacing: 1px;
+	letter-spacing: 1px;
 }
 .navbar-default {
 
@@ -31,13 +37,13 @@ p{
  	background-color: #D92121;
  	color: #fff;
  }
-.navbar-brand {
-
-}
 #buddyHeader
 {
 	letter-spacing: 6px;
-	color: #248f6b;
+	color: #fff;
+	line-height: 1.2em;
+	margin-top: 60px;
+
 }
 
 #user {
@@ -51,12 +57,11 @@ p{
 }
 #jumbo {
 
-	background-image: url("/assets/repeat.png");
+	background-image: url("/assets/bg.png");
 	background-position: center;
 	background-color: #f0f0f0;
 	background-attachment: fixed;
-	background-repeat: repeat;
-	min-height: 450px;
+	min-height: 600px;
 	margin-bottom: 0px;
 }
 .btn-start{
@@ -95,18 +100,20 @@ p{
 
 	letter-spacing: 5px;
 	color: #248f6b;
-
 }
 #possy
 {
 	background-color: #F8F8F8;
 	color: #33CC99;
+	opacity: 0.8;
+	letter-spacing: 2px;
 }
 #possyHeads
 {
 	color: #33CC99;
+	margin-bottom: 50px;
 	word-spacing: 2px;
-	letter-spacing: 1px;
+	letter-spacing: 2px;
 }
 #more
 {
@@ -124,6 +131,11 @@ p{
 	word-spacing: 2px;
 	letter-spacing: 1px;
 }
+#about
+{
+ margin-bottom: 30px;
+ margin-top: 30px;
+}
 #contactForm
 {
 	background-color: #71dab7;
@@ -133,4 +145,15 @@ p{
 #footer
 {
 	background-color:  #F8F8F8;
+}
+#wait{
+
+	background-color: #F8F8F8;
+	margin-bottom: 50px;
+	padding-top: 30px;
+
+}
+#formy
+{
+	padding-bottom: 20px;
 }

@@ -4,17 +4,17 @@ angular.module('buddySms.signUp', ['buddySms.dash'])
 
 	$scope.user = {};
 
-
 	$scope.signup = function()
 	{
-		    auth.register($scope.user).error(function(data , error , status){
-			$scope.error= $ionicPopup.alert({
-            title: 'Error',
-            template: 'OOops User exists ' 
-   			});
-			}).success(function(){
-			$state.go('dash');
-			$scope.user = null;
+		    auth.register($scope.user).
+		    success(function(res){
+		    	$scope.res = response;
+			}).error(function(data , status , headers){
+				$scope.resp = status;
+				if($scope.resp > 299)
+				{
+					$scope.min = 'error';
+				}
 			});
 	};
 });

@@ -7,13 +7,13 @@ var jwt = require('jsonwebtoken');
 module.exports = function(app , mongoose)
 {
 	var userSchema = new mongoose.Schema({
+		email    : {type: String , unique: true , lowercase: true},
 		hash     : String,
 		salt     : String,
 		phone    : {type: Number , unique: true},
 		smss     : {type: Number},
 		bname    : String,
 	    industry : String,
-	    email    : {type: String , unique: true , lowercase: true},
 	    location : String,
 	    address  : String,
 	    office   : String,
