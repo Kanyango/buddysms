@@ -1,5 +1,6 @@
 var cluster = require('cluster');
 
+
 if(cluster.isMaster) {
     var numWorkers = require('os').cpus().length;
 
