@@ -1,4 +1,6 @@
 var cluster = require('cluster');
+var WORKERS = process.env.WEB_CONCURRENCY || 1;
+var PORT = process.env.PORT || 3000;
 
 if(cluster.isMaster) {
     var numWorkers = require('os').cpus().length;
