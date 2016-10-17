@@ -27,8 +27,8 @@ $http.get('/getSMS' , {headers: {Authorization: 'Bearer ' + auth.getToken()}})
             $scope.text = {};
             $scope.text.token = $window.localStorage.access_token;
       $http.get('/contacts', {headers : {Authorization: 'Bearer ' + auth.getToken()}})
-      .success(function(response){
-        $scope.contacts = response;
+      .then(function(response){
+        $scope.contacts = response.data;
       });
 
   
