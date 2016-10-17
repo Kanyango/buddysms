@@ -68,7 +68,7 @@ $http.get('/getSMS' , {headers: {Authorization: 'Bearer ' + auth.getToken()}})
 
     $scope.text.ceci = $scope.text.reci.length;
     console.log($scope.text.ceci);  
-    $scope.reci = $scope.ceci; 
+    $scope.text.reci = $scope.text.ceci; 
   }
   $scope.count = function()
   {
