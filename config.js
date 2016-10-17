@@ -1,5 +1,5 @@
 
-
+exports.port = process.env.PORT || 7000;
 exports.mongodb = {
 	//uri: 'mongodb://127.0.0.1:27017/smsdb'
 	uri: 'mongodb://kariuki:androidapps@ds033126.mlab.com:33126/smsappdb'
