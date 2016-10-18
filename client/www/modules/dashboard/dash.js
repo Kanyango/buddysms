@@ -31,7 +31,7 @@ angular.module('buddySms.dash',
 		{
 		 url: '/dash/confirmId',
 		 templateUrl: '/modules/dashboard/confirm.html',
-		 controller: 'ConfirmId' 
+		 controller: 'ConfirmController' 
 		})
 	.state('dash.trans',
 		{
