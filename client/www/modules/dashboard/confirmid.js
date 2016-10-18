@@ -1,6 +1,6 @@
 angular.module('buddySMS.confirm' , [])
 
-.controller('ConfirmId' , function($scope , $http){
+.controller('ConfirmController' , function($scope , $http){
 
 	$scope.confirm = function()
 	{
