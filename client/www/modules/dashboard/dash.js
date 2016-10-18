@@ -1,11 +1,13 @@
 angular.module('buddySms.dash',
-	['buddySms.send',
-	'buddySms.trans',
+	['oi.select',
 	'buddySms.contact',
 	'buddySms.groups',
 	'buddySms.outbox','buddySms.home',
 	'buddySms.smspurch',
-	'buddySms.sender'])
+	'buddySms.sender',
+	'buddySMS.confirm',
+	'buddySms.send',
+	'buddySms.trans'])
 
 .config(function($stateProvider){
 	$stateProvider
@@ -25,13 +27,13 @@ angular.module('buddySms.dash',
 		{
 		 url: '/dash/sendsms',
 		 templateUrl: '/modules/dashboard/sendsms.html',
-		 controller: 'ConfirmId' 
+		 controller: 'SendSMS' 
 		})
 	.state('dash.senderconfirm',
 		{
 		 url: '/dash/confirmId',
 		 templateUrl: '/modules/dashboard/confirm.html',
-		 controller: 'SendSMS' 
+		 controller: 'ConfirmController' 
 		})
 	.state('dash.trans',
 		{

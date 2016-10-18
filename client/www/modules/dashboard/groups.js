@@ -1,4 +1,4 @@
-angular.module('buddySms.groups',['oi.select','ui.bootstrap'])
+angular.module('buddySms.groups',['ui.bootstrap'])
 
 .controller('GroupsController', function($scope ,$filter , $http, auth ,$uibModal){
 

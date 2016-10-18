@@ -13,6 +13,7 @@ var branded   = require('./server/service/sender');
 
 module.exports = function(app , passport)
 {   
+    //no of sms
     app.get('/getSMS' , auth , user.getsms);
     //sender Id request
     app.post('/branded' , auth , branded.idReq);

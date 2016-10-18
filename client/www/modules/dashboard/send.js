@@ -1,4 +1,4 @@
-angular.module('buddySms.send' , ['ngTagsInput'])
+angular.module('buddySms.send' , [])
 
 .directive('myModelValue', function () {
         return {
@@ -15,22 +15,33 @@ angular.module('buddySms.send' , ['ngTagsInput'])
         };
  })
 
-.controller('SendSMS', function($scope , $http , $q ,  auth , $window){
-
-$http.get('/getSMS' , {headers: {Authorization: 'Bearer ' + auth.getToken()}})
-  .then(function(res){
-    $scope.sms = res.data;
-    console.log($scope.sms);
-  });
+.controller('SendSMS', function($scope , $filter , $http , $q ,  auth , $window){
 
 	    $scope.tags = [];
-            $scope.text = {};
-            $scope.text.token = $window.localStorage.access_token;
-      $http.get('/contacts', {headers : {Authorization: 'Bearer ' + auth.getToken()}})
-      .success(function(response){
-        $scope.contacts = response;
+      $scope.text = {};
+      $scope.text.token = $window.localStorage.access_token;
+
+      $http.get('/contact', 
+        {headers : {Authorization: 'Bearer ' + auth.getToken()}})
+      .then(function(response){
+        $scope.contacts = response.data;
+        console.log('Hi '+ $scope.contacts);
       });
 
+      $http.get('/getSMS',{headers : {Authorization: 'Bearer ' + auth.getToken()}})
+      .then(function(response)
+      {
+        $scope.sms = response.data;
+        console.log($scope.sms["0"].smss);
+        if(typeof $scope.sms["0"].smss === 'undefined' || $scope.sms["0"].smss === null)
+        {
+          $scope.isDisabled = true;
+        }
+        else
+        {
+           $scope.isDisabled = false;
+        }
+      });
   
 
   $scope.send = function()

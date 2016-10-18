@@ -9,7 +9,7 @@ angular.module('buddySms.signUp', ['buddySms.dash'])
 		    auth.register($scope.user).
 		    success(function(res){
 		    	$scope.res = response;
-			}).error(function(data , status , headers){
+			}).error(function(resp , status , headers){
 				$scope.resp = status;
 				if($scope.resp > 299)
 				{
