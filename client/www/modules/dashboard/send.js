@@ -1,4 +1,5 @@
-angular.module('buddySms.send' , [])
+angular.module('buddySms.send' , ['ngTagsInput','oi.select'])
+
 
 .directive('myModelValue', function () {
         return {
@@ -17,15 +18,13 @@ angular.module('buddySms.send' , [])
 
 .controller('SendSMS', function($scope , $filter , $http , $q ,  auth , $window){
 
-	    $scope.tags = [];
-      $scope.text = {};
-      $scope.text.token = $window.localStorage.access_token;
-
-      $http.get('/contact', 
-        {headers : {Authorization: 'Bearer ' + auth.getToken()}})
+	          $scope.tags = [];
+            $scope.text = {};
+            $scope.text.token = $window.localStorage.access_token;
+      $http.get('/contacts', {headers : {Authorization: 'Bearer ' + auth.getToken()}})
       .then(function(response){
         $scope.contacts = response.data;
-        console.log('Hi '+ $scope.contacts);
+
       });
 
       $http.get('/getSMS',{headers : {Authorization: 'Bearer ' + auth.getToken()}})
@@ -47,7 +46,7 @@ angular.module('buddySms.send' , [])
   $scope.send = function()
   {
     //console.log($scope.bundle);
-    $scope.text.reci = [];
+    $scope.text.rec = [];
 
     for(var k = 0; k < $scope.text.bundle.length; k++)
     {
@@ -70,16 +69,16 @@ angular.module('buddySms.send' , [])
       else
       {
 
-        $scope.text.reci.push($scope.text.bundle[k]["value"]); 
+        $scope.text.rec.push($scope.text.bundle[k]["value"]); 
 
       }
-      
+      console.log($scope.text.rec);
     } 
 
 
-    $scope.text.ceci = $scope.text.reci.length;
+    $scope.text.ceci = $scope.text.rec.length;
     console.log($scope.text.ceci);  
-    $scope.reci = $scope.ceci; 
+   // $scope.text.reci = $scope.text.ceci; 
   }
   $scope.count = function()
   {
