@@ -1,5 +1,6 @@
 angular.module('buddySms.send' , ['ngTagsInput','oi.select'])
 
+
 .directive('myModelValue', function () {
         return {
             restrict: 'A',
@@ -15,22 +16,31 @@ angular.module('buddySms.send' , ['ngTagsInput','oi.select'])
         };
  })
 
-.controller('SendSMS', function($scope , $http , $q ,  auth , $window){
+.controller('SendSMS', function($scope , $filter , $http , $q ,  auth , $window){
 
-$http.get('/getSMS' , {headers: {Authorization: 'Bearer ' + auth.getToken()}})
-  .then(function(res){
-    $scope.sms = res.data;
-    console.log($scope.sms);
-  });
-
-	    $scope.tags = [];
+	          $scope.tags = [];
             $scope.text = {};
             $scope.text.token = $window.localStorage.access_token;
       $http.get('/contacts', {headers : {Authorization: 'Bearer ' + auth.getToken()}})
       .then(function(response){
         $scope.contacts = response.data;
+
       });
 
+      $http.get('/getSMS',{headers : {Authorization: 'Bearer ' + auth.getToken()}})
+      .then(function(response)
+      {
+        $scope.sms = response.data;
+        console.log($scope.sms["0"].smss);
+        if(typeof $scope.sms["0"].smss === 'undefined' || $scope.sms["0"].smss === null)
+        {
+          $scope.isDisabled = true;
+        }
+        else
+        {
+           $scope.isDisabled = false;
+        }
+      });
   
 
   $scope.send = function()
